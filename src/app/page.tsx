@@ -96,17 +96,17 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
             
             <div className="absolute top-4 left-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#c77a16] animate-ping"></span>
-              <span className="px-2 py-0.5 bg-[#c77a16]/20 backdrop-blur-md text-[9px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded">Vagas Abertas</span>
+              <span className="w-3 h-3 rounded-full bg-[#c77a16] animate-ping"></span>
+              <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-md text-[11px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded">Vagas Abertas</span>
             </div>
 
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
-                <h3 className="font-bold text-white text-2xl font-serif italic tracking-wide">Mentoria Viver de Marcenaria</h3>
-                <p className="text-neutral-400 text-[11px] mt-1 max-w-[85%] leading-relaxed">Do operacional ao empresarial. Construa o seu império.</p>
+                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight">Mentoria Viver de Marcenaria</h3>
+                <p className="text-neutral-300 text-sm mt-2 max-w-[90%] leading-relaxed">Do operacional ao empresarial. Construa o seu império.</p>
               </div>
-              <div className="w-10 h-10 rounded-full bg-[#c77a16] flex items-center justify-center shadow-[0_0_15px_rgba(199,122,22,0.5)] group-hover:scale-110 transition-transform shrink-0">
-                <FaArrowRight className="text-[#0d0d0d] text-sm" />
+              <div className="w-12 h-12 rounded-full bg-[#c77a16] flex items-center justify-center shadow-[0_0_15px_rgba(199,122,22,0.5)] group-hover:scale-110 transition-transform shrink-0">
+                <FaArrowRight className="text-[#0d0d0d] text-lg" />
               </div>
             </div>
           </a>
@@ -134,9 +134,9 @@ export default function Home() {
                  <Image src={projeto.img} alt={projeto.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/40 to-transparent"></div>
                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                   <h4 className="font-bold text-white text-[15px] tracking-wide">{projeto.title}</h4>
-                   <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#c77a16] transition-colors">
-                     <FaArrowRight className="text-white text-[10px]" />
+                   <h4 className="font-bold text-white text-lg tracking-wide">{projeto.title}</h4>
+                   <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#c77a16] transition-colors">
+                     <FaArrowRight className="text-white text-[12px]" />
                    </div>
                  </div>
                </a>
@@ -151,13 +151,13 @@ export default function Home() {
           <a href="#evento" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
             <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (26).jpeg" alt="Evento Presencial" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
-                <h3 className="font-bold text-white text-lg font-serif italic tracking-wide">Imersão Presencial</h3>
-                <p className="text-neutral-400 text-[11px] mt-1 max-w-[85%]">Garanta sua vaga no próximo evento.</p>
+                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight">Imersão Presencial</h3>
+                <p className="text-neutral-300 text-sm mt-2 max-w-[90%]">Garanta sua vaga no próximo evento.</p>
               </div>
-              <div className="w-9 h-9 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#4de782] transition-colors shrink-0 border border-white/10">
-                <FaCalendarAlt className="text-white text-sm" />
+              <div className="w-12 h-12 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#4de782] transition-colors shrink-0 border border-white/10">
+                <FaCalendarAlt className="text-white text-lg" />
               </div>
             </div>
           </a>
@@ -166,13 +166,13 @@ export default function Home() {
           <a href="#cursos" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
             <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (8).jpeg" alt="Cursos Online" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
-                <h3 className="font-bold text-white text-lg tracking-wide uppercase">Cursos Online</h3>
-                <p className="text-neutral-400 text-[11px] mt-1">Acesse o Portal do Aluno</p>
+                <h3 className="font-bold text-white text-2xl tracking-wide uppercase leading-tight">Cursos Online</h3>
+                <p className="text-neutral-300 text-sm mt-2">Acesse o Portal do Aluno</p>
               </div>
-              <div className="w-9 h-9 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#c77a16] transition-colors shrink-0 border border-white/10">
-                <FaLaptop className="text-white text-sm" />
+              <div className="w-12 h-12 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#c77a16] transition-colors shrink-0 border border-white/10">
+                <FaLaptop className="text-white text-lg" />
               </div>
             </div>
           </a>
