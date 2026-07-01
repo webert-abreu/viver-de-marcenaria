@@ -249,10 +249,6 @@ export default function Home() {
 
       </div>
 
-      {/* Floating Action Button (FAB) for WhatsApp */}
-      <a href="https://wa.me/5547999695575" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_5px_25px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all animate-fade-in-up delay-1000 group">
-        <FaWhatsapp className="text-[#0d0d0d] text-[32px] group-hover:scale-110 transition-transform" />
-      </a>
     </main>
   );
 }
