@@ -5,7 +5,6 @@ import { FaYoutube, FaInstagram, FaWhatsapp, FaArrowRight, FaUsers, FaLaptop, Fa
 
 export default function Home() {
   const [greeting, setGreeting] = useState("Olá");
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // Greeting logic based on local time
@@ -13,13 +12,6 @@ export default function Home() {
     if (hour >= 5 && hour < 12) setGreeting("Bom dia");
     else if (hour >= 12 && hour < 18) setGreeting("Boa tarde");
     else setGreeting("Boa noite");
-
-    // Scroll logic for Sticky Header
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 120);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -29,24 +21,7 @@ export default function Home() {
       <div className="absolute inset-0 z-0 opacity-[0.12] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}></div>
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-[#c77a16]/10 via-[#0d0d0d]/90 to-[#0d0d0d] z-0 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }}></div>
 
-      {/* Sticky App Header (Appears on scroll) */}
-      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <div className="absolute inset-0 bg-[#0d0d0d]/90 backdrop-blur-lg border-b border-white/5"></div>
-        <div className="relative max-w-[480px] mx-auto px-5 py-3 flex items-center justify-between">
-           <div className="flex items-center gap-3">
-             <div className="w-9 h-9 rounded-full overflow-hidden border border-[#c77a16]/50 relative shrink-0 shadow-[0_0_10px_rgba(199,122,22,0.3)]">
-               <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (6).jpeg" alt="Edriano" fill className="object-cover object-[center_top]" />
-             </div>
-             <div className="flex flex-col">
-               <span className="text-white font-bold text-sm leading-tight">Edriano</span>
-               <span className="text-[#c77a16] text-[8px] uppercase font-black tracking-widest">Apaixonados por Marcenaria</span>
-             </div>
-           </div>
-           <a href="https://wa.me/5547999695575" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-[#25D366]/20 flex items-center justify-center shrink-0">
-             <FaWhatsapp className="text-[#25D366] text-sm" />
-           </a>
-        </div>
-      </div>
+
 
       {/* Main Content - Interactive App UX */}
       <div className="w-full max-w-[480px] px-5 py-12 pb-24 relative z-10 flex flex-col gap-6">
