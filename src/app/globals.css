@@ -18,15 +18,14 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
-  to {
+  50% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 .animate-fade-in-up {
-  opacity: 0; /* Começa invisível */
-  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .delay-100 { animation-delay: 100ms; }
@@ -38,3 +37,13 @@ body {
 .delay-700 { animation-delay: 700ms; }
 .delay-800 { animation-delay: 800ms; }
 .delay-900 { animation-delay: 900ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* Hide scrollbar for horizontal carousels */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
