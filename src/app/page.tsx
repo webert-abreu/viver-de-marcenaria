@@ -35,7 +35,7 @@ export default function Home() {
             <div className="absolute inset-0 rounded-full border border-[#c77a16]/30 animate-ping" style={{ animationDuration: '3s' }}></div>
             <div className="absolute inset-[-4px] rounded-full bg-gradient-to-tr from-[#c77a16] to-[#e2a836] p-[3px] shadow-[0_0_30px_rgba(199,122,22,0.5)] transition-transform duration-500 group-hover:scale-105">
               <div className="w-full h-full bg-[#1a1a1a] rounded-full overflow-hidden relative border-4 border-[#0d0d0d]">
-                <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (6).jpeg" alt="Edriano" fill className="object-cover object-[center_top] group-hover:scale-110 transition-transform duration-700" />
+                <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (4).jpeg" alt="Edriano" fill className="object-cover object-[center_top] group-hover:scale-110 transition-transform duration-700" />
               </div>
             </div>
           </div>
@@ -122,9 +122,9 @@ export default function Home() {
         <div className="flex flex-col gap-4 animate-fade-in-up delay-500">
           
           {/* Evento Presencial Link */}
-          <a href="#evento" className="relative w-full h-[150px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-xl">
-            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (26).jpeg" alt="Evento Presencial" fill className="object-cover object-[center_top] group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/70 to-transparent"></div>
+          <a href="#evento" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (26).jpeg" alt="Evento Presencial" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <div>
                 <h3 className="font-bold text-white text-lg font-serif italic tracking-wide">Imersão Presencial</h3>
@@ -137,9 +137,9 @@ export default function Home() {
           </a>
 
           {/* Cursos Link */}
-          <a href="#cursos" className="relative w-full h-[150px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-xl">
-            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (8).jpeg" alt="Cursos Online" fill className="object-cover object-[center_40%] group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/70 to-transparent"></div>
+          <a href="#cursos" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (8).jpeg" alt="Cursos Online" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <div>
                 <h3 className="font-bold text-white text-lg tracking-wide uppercase">Cursos Online</h3>
@@ -188,7 +188,7 @@ export default function Home() {
             <div className="relative w-[65px] h-[65px] shrink-0">
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] p-[2px] shadow-lg">
                 <div className="w-full h-full bg-[#111] rounded-full overflow-hidden relative border-[2.5px] border-[#111]">
-                  <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (6).jpeg" alt="Instagram Profile" fill className="object-cover object-[center_top]" />
+                  <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (4).jpeg" alt="Instagram Profile" fill className="object-cover object-[center_top]" />
                 </div>
               </div>
             </div>
