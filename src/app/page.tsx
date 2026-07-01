@@ -65,9 +65,9 @@ export default function Home() {
           {/* Subtle pulse ring behind the hero card */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-3xl opacity-20 blur-lg animate-pulse" style={{ animationDuration: '3s' }}></div>
           
-          <a href="https://wa.me/5547999695575?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20Viver%20de%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[200px] rounded-3xl overflow-hidden group border border-[#c77a16]/30 block active:scale-[0.98] transition-all shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (3).jpeg" alt="Mentoria" fill className="object-cover object-[center_30%] group-hover:scale-110 transition-transform duration-1000" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent"></div>
+          <a href="https://wa.me/5547999695575?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20Viver%20de%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-[#c77a16]/30 block active:scale-[0.98] transition-all shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (3).jpeg" alt="Mentoria" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
             
             <div className="absolute top-4 left-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#c77a16] animate-ping"></span>
