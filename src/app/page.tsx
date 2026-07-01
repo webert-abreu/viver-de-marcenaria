@@ -21,8 +21,6 @@ export default function Home() {
       <div className="absolute inset-0 z-0 opacity-[0.12] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}></div>
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-[#c77a16]/10 via-[#0d0d0d]/90 to-[#0d0d0d] z-0 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }}></div>
 
-
-
       {/* Main Content - Interactive App UX */}
       <div className="w-full max-w-[480px] px-5 py-12 pb-24 relative z-10 flex flex-col gap-6">
         
@@ -60,8 +58,36 @@ export default function Home() {
           </a>
         </div>
 
+        {/* YouTube Embedded Video Flat Panel - MOVED TO TOP */}
+        <div className="bg-[#111] border border-white/5 rounded-3xl flex flex-col overflow-hidden animate-fade-in-up delay-300 shadow-xl mt-2">
+          <div className="p-4 flex items-center justify-between border-b border-white/5 bg-[#161616]">
+             <div className="flex items-center gap-3">
+               <FaYoutube className="text-[#FF0000] text-2xl" />
+               <div>
+                 <h3 className="font-bold text-[14px] text-white">YouTube</h3>
+                 <p className="text-[10px] text-neutral-500 uppercase tracking-wider font-semibold">Último Vídeo</p>
+               </div>
+             </div>
+             <a href="https://www.youtube.com/@APAIXONADOSPORMARCENARIA-o4b?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-[#FF0000] hover:bg-[#CC0000] transition-colors rounded-xl text-[10px] font-black text-white uppercase tracking-widest shadow-[0_0_15px_rgba(255,0,0,0.3)]">
+               Inscrever-se
+             </a>
+          </div>
+          <div className="relative w-full aspect-video bg-black">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/Nk5fgD_b8fo?rel=0" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+              className="absolute inset-0"
+            ></iframe>
+          </div>
+        </div>
+
         {/* Pulsing Hero Card (Mentoria) */}
-        <div className="relative animate-fade-in-up delay-300 mt-2">
+        <div className="relative animate-fade-in-up delay-400 mt-2">
           {/* Subtle pulse ring behind the hero card */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-3xl opacity-20 blur-lg animate-pulse" style={{ animationDuration: '3s' }}></div>
           
@@ -87,7 +113,7 @@ export default function Home() {
         </div>
 
         {/* Interactive Horizontal Carousel for Projects */}
-        <div className="flex flex-col gap-3 mt-2 animate-fade-in-up delay-400">
+        <div className="flex flex-col gap-3 mt-2 animate-fade-in-up delay-500">
           <div className="flex items-center justify-between px-1">
             <h3 className="font-bold text-white text-[13px] tracking-wide uppercase flex items-center gap-2">
                <FaHammer className="text-[#c77a16]" /> Portfólio de Projetos
@@ -119,7 +145,7 @@ export default function Home() {
         </div>
 
         {/* Regular Full-Bleed Cards (Evento & Cursos) */}
-        <div className="flex flex-col gap-4 animate-fade-in-up delay-500">
+        <div className="flex flex-col gap-4 animate-fade-in-up delay-600">
           
           {/* Evento Presencial Link */}
           <a href="#evento" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
@@ -150,34 +176,6 @@ export default function Home() {
               </div>
             </div>
           </a>
-        </div>
-
-        {/* YouTube Embedded Video Flat Panel */}
-        <div className="bg-[#111] border border-white/5 rounded-3xl flex flex-col overflow-hidden animate-fade-in-up delay-600 shadow-xl mt-2">
-          <div className="p-4 flex items-center justify-between border-b border-white/5 bg-[#161616]">
-             <div className="flex items-center gap-3">
-               <FaYoutube className="text-[#FF0000] text-2xl" />
-               <div>
-                 <h3 className="font-bold text-[14px] text-white">YouTube</h3>
-                 <p className="text-[10px] text-neutral-500 uppercase tracking-wider font-semibold">Último Vídeo</p>
-               </div>
-             </div>
-             <a href="https://www.youtube.com/@APAIXONADOSPORMARCENARIA-o4b?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-[#FF0000] hover:bg-[#CC0000] transition-colors rounded-xl text-[10px] font-black text-white uppercase tracking-widest shadow-[0_0_15px_rgba(255,0,0,0.3)]">
-               Inscrever-se
-             </a>
-          </div>
-          <div className="relative w-full aspect-video bg-black">
-            <iframe 
-              width="100%" 
-              height="100%" 
-              src="https://www.youtube.com/embed/Nk5fgD_b8fo?rel=0" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-              className="absolute inset-0"
-            ></iframe>
-          </div>
         </div>
 
         {/* Instagram Profile Flat Panel */}
@@ -223,7 +221,6 @@ export default function Home() {
         </footer>
 
       </div>
-
     </main>
   );
 }
