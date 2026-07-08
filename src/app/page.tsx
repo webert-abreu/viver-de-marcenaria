@@ -272,7 +272,7 @@ export default function Home() {
         </div>
 
         {/* Instagram Profile Flat Panel */}
-        <a href="https://instagram.com/edriano_bittencourt" target="_blank" rel="noopener noreferrer" 
+        <a href="https://instagram.com/canal.apaixonadospormarcenaria" target="_blank" rel="noopener noreferrer" 
            className="bg-[#111] border border-white/5 rounded-3xl p-5 flex flex-col gap-4 hover:border-[#0095F6]/50 transition-colors block animate-fade-in-up delay-700 shadow-xl mt-1">
           
           <div className="flex items-center gap-4">
@@ -286,19 +286,20 @@ export default function Home() {
             
             <div className="flex flex-col flex-1">
               <div className="flex items-center gap-1 mb-1">
-                <h3 className="font-bold text-[14px] text-white">edriano_bittencourt</h3>
+                <h3 className="font-bold text-[14px] text-white">canal.apaixonadospormarcenaria</h3>
                 <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] text-[#0095F6] fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"/></svg>
               </div>
               <div className="flex items-center justify-between text-[11px] text-neutral-500 mt-1 pr-1">
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">479</span> posts</div>
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">3.406</span> seguidores</div>
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">153</span> seguindo</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.643</span> posts</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">36,8k</span> seguidores</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.536</span> seguindo</div>
               </div>
             </div>
           </div>
 
           <div className="text-[12px] text-neutral-400 leading-[1.6]">
-            Profissional da área de marcenaria atua a mais de 30 anos no mercado, criador de conteúdo digital, sócio fundador da...
+            Marcenaria de verdade, do legado à prática.<br/>
+            Vídeos reais e técnicas de quem vive isso há 30 anos.<br/>
           </div>
 
           <div className="w-full py-3 bg-[#0095F6] hover:bg-[#1877F2] rounded-xl text-center text-[11px] font-black transition-colors text-white mt-1 uppercase tracking-widest shadow-[0_4px_15px_rgba(0,149,246,0.3)]">
