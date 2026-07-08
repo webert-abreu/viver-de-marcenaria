@@ -1,19 +1,11 @@
 "use client"
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { FaYoutube, FaInstagram, FaWhatsapp, FaArrowRight, FaUsers, FaLaptop, FaHammer, FaCalendarAlt, FaChevronRight, FaShoppingCart } from "react-icons/fa";
+import { useState } from "react";
+import { FaYoutube, FaWhatsapp, FaArrowRight, FaLaptop, FaCalendarAlt, FaShoppingCart } from "react-icons/fa";
 
 export default function Home() {
-  const [greeting, setGreeting] = useState("Olá");
   const [showBio, setShowBio] = useState(false);
-
-  useEffect(() => {
-    // Greeting logic based on local time
-    const hour = new Date().getHours();
-    if (hour >= 5 && hour < 12) setGreeting("Bom dia");
-    else if (hour >= 12 && hour < 18) setGreeting("Boa tarde");
-    else setGreeting("Boa noite");
-  }, []);
+  const [showSchedule, setShowSchedule] = useState(false);
 
   return (
     <main className="min-h-screen relative flex justify-center overflow-x-hidden font-sans text-neutral-100 bg-[#0d0d0d]">
@@ -57,7 +49,7 @@ export default function Home() {
                   Você pode ser um bom marceneiro... mas se não construir um legado, seu trabalho será apenas madeira.
                 </p>
                 <p>
-                  Aqui você conhece a história de quem vive o ofício há mais de 4 décadas e aprende que "o maior penhor que você pode deixar a um filho é o legado".
+                  Aqui você conhece a história de quem vive o ofício há mais de 4 décadas e aprende que &quot;o maior penhor que você pode deixar a um filho é o legado&quot;.
                 </p>
               </div>
 
@@ -101,7 +93,7 @@ export default function Home() {
 
               <div className="mt-4 p-5 border border-[#c77a16]/30 bg-gradient-to-br from-[#c77a16]/10 to-[#0d0d0d] rounded-2xl relative overflow-hidden group">
                 <p className="text-white font-serif italic text-lg leading-relaxed text-center relative z-10">
-                  "O maior penhor que você pode deixar a um filho é o legado."
+                  &quot;O maior penhor que você pode deixar a um filho é o legado.&quot;
                 </p>
               </div>
             </div>
@@ -113,32 +105,69 @@ export default function Home() {
           <div className="p-4 flex flex-col gap-3 border-b border-white/5 bg-[#161616]">
              <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
-                 <FaYoutube className="text-[#FF0000] text-2xl" />
+                 <div className="relative">
+                   <FaYoutube className="text-[#FF0000] text-2xl" />
+                   <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+                   </span>
+                 </div>
                  <div>
                    <h3 className="font-bold text-[14px] text-white">Podcast Apaixonados</h3>
-                   <p className="text-[10px] text-[#c77a16] uppercase tracking-wider font-bold">Episódio da Semana</p>
+                   <div className="flex items-center gap-1.5 mt-0.5">
+                     <span className="text-[10px] text-[#FF0000] uppercase tracking-wider font-bold">Programado: 09/07 às 21h</span>
+                   </div>
                  </div>
                </div>
                <a href="https://www.youtube.com/@APAIXONADOSPORMARCENARIA-o4b?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-[#FF0000] hover:bg-[#CC0000] transition-colors rounded-xl text-[10px] font-black text-white uppercase tracking-widest shadow-[0_0_15px_rgba(255,0,0,0.3)]">
                  Inscrever-se
                </a>
              </div>
-             <a href="https://www.youtube.com/@APAIXONADOSPORMARCENARIA-o4b/videos" target="_blank" rel="noopener noreferrer" className="w-full py-2.5 bg-[#1a1a1a] hover:bg-[#222] transition-colors rounded-xl text-[11px] font-bold text-neutral-300 uppercase tracking-widest text-center border border-white/5 flex items-center justify-center gap-2">
-               <FaYoutube className="text-neutral-400" /> Ver Episódios Anteriores
-             </a>
+             
+             <div className="flex gap-2">
+               <button onClick={() => setShowSchedule(!showSchedule)} className="flex-1 py-2.5 bg-[#1a1a1a] hover:bg-[#222] transition-colors rounded-xl text-[10px] font-bold text-[#c77a16] uppercase tracking-widest text-center border border-[#c77a16]/20 flex items-center justify-center gap-2">
+                 <FaCalendarAlt className="text-[#c77a16]" /> {showSchedule ? "Ocultar Agenda" : "Próximos Ao Vivos"}
+               </button>
+               <a href="https://www.youtube.com/@APAIXONADOSPORMARCENARIA-o4b/videos" target="_blank" rel="noopener noreferrer" className="flex-1 py-2.5 bg-[#1a1a1a] hover:bg-[#222] transition-colors rounded-xl text-[10px] font-bold text-neutral-300 uppercase tracking-widest text-center border border-white/5 flex items-center justify-center gap-2">
+                 <FaYoutube className="text-neutral-400" /> Anteriores
+               </a>
+             </div>
+             
+             {/* Dropdown de Agenda */}
+             {showSchedule && (
+               <div className="flex flex-col gap-2 mt-2 bg-[#0a0a0a] border border-white/5 rounded-xl p-3 animate-fade-in-up">
+                 <h4 className="text-[11px] text-neutral-400 font-bold uppercase tracking-wider mb-1">Próximos Episódios</h4>
+                 {[
+                   { id: 1, title: "APAIXONADOS POR MARCENARIA - 77 EP", date: "09/07, 21:00" },
+                   { id: 2, title: "APAIXONADOS POR MARCENARIA - 78 EP", date: "16/07, 21:00" },
+                   { id: 3, title: "APAIXONADOS POR MARCENARIA - 79 EP", date: "23/07, 21:00" },
+                   { id: 4, title: "APAIXONADOS POR MARCENARIA - 80 EP", date: "30/07, 21:00" },
+                 ].map((live) => (
+                   <div key={live.id} className="flex flex-col gap-1 p-2.5 rounded-lg bg-[#111] border border-white/5">
+                     <span className="text-[10px] text-[#FF0000] font-bold uppercase tracking-widest">{live.date}</span>
+                     <span className="text-[12px] text-white font-medium">{live.title}</span>
+                   </div>
+                  ))}
+                </div>
+              )}
           </div>
-          <div className="relative w-full aspect-video bg-black">
-            <iframe 
-              width="100%" 
-              height="100%" 
-              src="https://www.youtube.com/embed/Nk5fgD_b8fo?rel=0" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-              className="absolute inset-0"
-            ></iframe>
-          </div>
+          <a href="https://www.youtube.com/live/whtTiSMxFk0" target="_blank" rel="noopener noreferrer" className="relative w-full aspect-video bg-[#0a0a0a] block group cursor-pointer border-t border-white/5 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="https://img.youtube.com/vi/whtTiSMxFk0/maxresdefault.jpg" 
+              alt="Capa do Episódio Ao Vivo"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+              onError={(e) => { e.currentTarget.src = "https://img.youtube.com/vi/whtTiSMxFk0/hqdefault.jpg" }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-16 h-12 bg-[#FF0000] rounded-xl flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.6)] group-hover:scale-110 transition-transform duration-300">
+                <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+              </div>
+            </div>
+            <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex justify-between items-end">
+              <span className="text-white text-xs font-bold drop-shadow-md">Assistir no YouTube</span>
+            </div>
+          </a>
         </div>
 
         {/* Pulsing Hero Card (Mentoria) */}
@@ -169,7 +198,7 @@ export default function Home() {
 
         {/* Loja Apaixonados por Marcenaria */}
         <div className="relative animate-fade-in-up delay-500 mt-2">
-          <a href="https://wa.me/5547999695575?text=Ol%C3%A1%2C%20gostaria%20de%20ver%20os%20produtos%20da%20Loja%20Apaixonados%20por%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[180px] rounded-3xl overflow-hidden group border border-white/10 block active:scale-[0.98] transition-all shadow-xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
+          <a href="https://wa.me/554799691000?text=Ol%C3%A1%2C%20gostaria%20de%20ver%20os%20produtos%20da%20Loja%20Apaixonados%20por%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[180px] rounded-3xl overflow-hidden group border border-white/10 block active:scale-[0.98] transition-all shadow-xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
             {/* Minimal Background pattern */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
             
@@ -229,7 +258,7 @@ export default function Home() {
         </div>
 
         {/* Instagram Profile Flat Panel */}
-        <a href="https://instagram.com/canal.apaixonadospormarcenaria" target="_blank" rel="noopener noreferrer" 
+        <a href="https://instagram.com/edriano_bittencourt" target="_blank" rel="noopener noreferrer" 
            className="bg-[#111] border border-white/5 rounded-3xl p-5 flex flex-col gap-4 hover:border-[#0095F6]/50 transition-colors block animate-fade-in-up delay-700 shadow-xl mt-1">
           
           <div className="flex items-center gap-4">
@@ -243,20 +272,19 @@ export default function Home() {
             
             <div className="flex flex-col flex-1">
               <div className="flex items-center gap-1 mb-1">
-                <h3 className="font-bold text-[14px] text-white">canal.apaixonadospormarcenaria</h3>
+                <h3 className="font-bold text-[14px] text-white">edriano_bittencourt</h3>
                 <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] text-[#0095F6] fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"/></svg>
               </div>
               <div className="flex items-center justify-between text-[11px] text-neutral-500 mt-1 pr-1">
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.618</span> posts</div>
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">36,6k</span> seguidores</div>
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.519</span> seguindo</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">479</span> posts</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">3.406</span> seguidores</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">153</span> seguindo</div>
               </div>
             </div>
           </div>
 
           <div className="text-[12px] text-neutral-400 leading-[1.6]">
-            Marcenaria de verdade, do legado à prática.<br/>
-            Vídeos reais e técnicas de quem vive isso há 30 anos.<br/>
+            Profissional da área de marcenaria atua a mais de 30 anos no mercado, criador de conteúdo digital, sócio fundador da...
           </div>
 
           <div className="w-full py-3 bg-[#0095F6] hover:bg-[#1877F2] rounded-xl text-center text-[11px] font-black transition-colors text-white mt-1 uppercase tracking-widest shadow-[0_4px_15px_rgba(0,149,246,0.3)]">
