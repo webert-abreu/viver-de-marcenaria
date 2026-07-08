@@ -24,9 +24,9 @@ export default function Home() {
             
             {/* Background Image of Edriano */}
             <div className="absolute right-[-25%] bottom-0 w-[125%] h-[100%] opacity-100 z-0 pointer-events-none">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/40 to-transparent z-10"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/60 to-transparent z-10"></div>
-              <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" alt="Edriano Bittencourt" fill className="object-cover object-top" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/20 to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/40 to-transparent z-10"></div>
+              <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" alt="Edriano Bittencourt" fill className="object-cover object-top brightness-110" />
             </div>
 
             <div className="relative z-10 p-7 flex flex-col min-h-[460px]">
