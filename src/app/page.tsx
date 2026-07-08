@@ -196,32 +196,7 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Loja Apaixonados por Marcenaria */}
-        <div className="relative animate-fade-in-up delay-500 mt-2">
-          <a href="https://wa.me/554799691000?text=Ol%C3%A1%2C%20gostaria%20de%20ver%20os%20produtos%20da%20Loja%20Apaixonados%20por%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[180px] rounded-3xl overflow-hidden group border border-white/10 block active:scale-[0.98] transition-all shadow-xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
-            {/* Minimal Background pattern */}
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
-            
-            <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="font-bold text-white text-2xl font-serif italic tracking-wide">Loja Apaixonados</h3>
-                  <p className="text-[#c77a16] text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Produtos Oficiais</p>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center border border-white/10 shadow-lg group-hover:bg-[#c77a16] group-hover:border-[#c77a16] transition-colors">
-                  <FaShoppingCart className="text-white text-sm" />
-                </div>
-              </div>
-              
-              <div className="flex items-center justify-between mt-auto">
-                <p className="text-neutral-400 text-xs">Camisas • Bonés • Copos</p>
-                <span className="text-[10px] font-bold text-white uppercase tracking-wider bg-white/10 px-3 py-1.5 rounded-lg group-hover:bg-white group-hover:text-black transition-colors">
-                  Acessar Loja
-                </span>
-              </div>
-            </div>
-          </a>
-        </div>
+
 
         {/* Regular Full-Bleed Cards (Evento & Cursos) */}
         <div className="flex flex-col gap-4 animate-fade-in-up delay-600">
@@ -306,6 +281,33 @@ export default function Home() {
             Seguir no Instagram
           </div>
         </a>
+        
+        {/* Loja Apaixonados por Marcenaria */}
+        <div className="relative animate-fade-in-up delay-700 mt-2 mb-2">
+          <a href="https://wa.me/554799691000?text=Ol%C3%A1%2C%20gostaria%20de%20ver%20os%20produtos%20da%20Loja%20Apaixonados%20por%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[180px] rounded-3xl overflow-hidden group border border-white/10 block active:scale-[0.98] transition-all shadow-xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
+            {/* Minimal Background pattern */}
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
+            
+            <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="font-bold text-white text-2xl font-serif italic tracking-wide">Loja Apaixonados</h3>
+                  <p className="text-[#c77a16] text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Produtos Oficiais</p>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center border border-white/10 shadow-lg group-hover:bg-[#c77a16] group-hover:border-[#c77a16] transition-colors">
+                  <FaShoppingCart className="text-white text-sm" />
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between mt-auto">
+                <p className="text-neutral-400 text-xs">Camisas • Bonés • Copos</p>
+                <span className="text-[10px] font-bold text-white uppercase tracking-wider bg-white/10 px-3 py-1.5 rounded-lg group-hover:bg-white group-hover:text-black transition-colors">
+                  Acessar Loja
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
         
         {/* Action Button - WhatsApp */}
         <div className="w-full animate-fade-in-up delay-1000 mt-2">
