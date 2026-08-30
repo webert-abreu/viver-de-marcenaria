@@ -100,8 +100,35 @@ export default function Home() {
           )}
         </div>
 
+        {/* Pulsing Hero Card (Mentoria) */}
+        <div className="relative animate-fade-in-up delay-300 mt-2">
+          {/* Subtle pulse ring behind the hero card */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-3xl opacity-20 blur-lg animate-pulse" style={{ animationDuration: '3s' }}></div>
+          
+          {/* TODO: Update this link when the user provides the WhatsApp group link */}
+          <a href="https://wa.me/5547999695575?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20Viver%20de%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-[#c77a16]/30 block active:scale-[0.98] transition-all shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (3).jpeg" alt="Mentoria" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
+            
+            <div className="absolute top-4 left-4 flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-[#c77a16] animate-ping"></span>
+              <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-md text-[11px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded">Vagas Abertas</span>
+            </div>
+
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+              <div>
+                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight">Mentoria Viver de Marcenaria</h3>
+                <p className="text-neutral-300 text-sm mt-2 max-w-[90%] leading-relaxed">Do operacional ao empresarial. Construa o seu império.</p>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-[#c77a16] flex items-center justify-center shadow-[0_0_15px_rgba(199,122,22,0.5)] group-hover:scale-110 transition-transform shrink-0">
+                <FaArrowRight className="text-[#0d0d0d] text-lg" />
+              </div>
+            </div>
+          </a>
+        </div>
+
         {/* Podcast Section */}
-        <div className="bg-[#111] border border-white/5 rounded-3xl flex flex-col overflow-hidden animate-fade-in-up delay-300 shadow-xl mt-2">
+        <div className="bg-[#111] border border-white/5 rounded-3xl flex flex-col overflow-hidden animate-fade-in-up delay-400 shadow-xl mt-2">
           <div className="p-4 flex flex-col gap-3 border-b border-white/5 bg-[#161616]">
              <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
@@ -148,7 +175,7 @@ export default function Home() {
                      <span className="text-[12px] text-white font-medium">{live.title}</span>
                    </div>
                   ))}
-                </div>
+                 </div>
               )}
           </div>
           <a href="https://www.youtube.com/live/whtTiSMxFk0" target="_blank" rel="noopener noreferrer" className="relative w-full aspect-video bg-[#0a0a0a] block group cursor-pointer border-t border-white/5 overflow-hidden">
@@ -169,34 +196,6 @@ export default function Home() {
             </div>
           </a>
         </div>
-
-        {/* Pulsing Hero Card (Mentoria) */}
-        <div className="relative animate-fade-in-up delay-400 mt-2">
-          {/* Subtle pulse ring behind the hero card */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-3xl opacity-20 blur-lg animate-pulse" style={{ animationDuration: '3s' }}></div>
-          
-          <a href="https://wa.me/5547999695575?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20Viver%20de%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-[#c77a16]/30 block active:scale-[0.98] transition-all shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (3).jpeg" alt="Mentoria" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-1000" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
-            
-            <div className="absolute top-4 left-4 flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-[#c77a16] animate-ping"></span>
-              <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-md text-[11px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded">Vagas Abertas</span>
-            </div>
-
-            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-              <div>
-                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight">Mentoria Viver de Marcenaria</h3>
-                <p className="text-neutral-300 text-sm mt-2 max-w-[90%] leading-relaxed">Do operacional ao empresarial. Construa o seu império.</p>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-[#c77a16] flex items-center justify-center shadow-[0_0_15px_rgba(199,122,22,0.5)] group-hover:scale-110 transition-transform shrink-0">
-                <FaArrowRight className="text-[#0d0d0d] text-lg" />
-              </div>
-            </div>
-          </a>
-        </div>
-
-
 
         {/* Regular Full-Bleed Cards (Evento & Cursos) */}
         <div className="flex flex-col gap-4 animate-fade-in-up delay-600">
