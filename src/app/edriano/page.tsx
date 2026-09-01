@@ -1,431 +1,330 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
-import { FaWhatsapp, FaChevronDown, FaCheckCircle, FaQuoteLeft } from "react-icons/fa";
+import { FaYoutube, FaWhatsapp, FaArrowRight, FaLaptop, FaCalendarAlt, FaShoppingCart } from "react-icons/fa";
 
-const modules = [
-  {
-    aula: "AULA 1",
-    title: "Metanóia: MUDANÇA DE MENTE",
-    subtitle: "O Primeiro Passo para Viver da Marcenaria",
-    content: [
-      "Mudança de mentalidade: a transição de marceneiro para empresário.",
-      "Identificação e quebra de crenças limitantes.",
-      "Propósito, visão e metas: saber onde você quer chegar.",
-      "Assumir 100% da responsabilidade pelos resultados da empresa.",
-      "Hábitos e disciplina dos empresários de alta performance.",
-      "Tomada de decisão baseada em números, não em emoções.",
-      "Como vencer o medo de vender, investir, contratar e crescer."
-    ],
-    opening: "“O maior equipamento da sua marcenaria não é a CNC, a esquadrejadeira ou qualquer outra máquina. É a sua mente. Quando ela evolui, a empresa evolui junto.”",
-    impact: "“A sua marcenaria nunca crescerá além da mentalidade de quem a lidera. Primeiro muda a mente, depois muda a empresa.”",
-    closing: "“Toda grande marcenaria nasceu quando alguém decidiu mudar primeiro a própria mentalidade. O sucesso começa na mente, cresce nas atitudes e aparece nos resultados.”"
-  },
-  {
-    aula: "AULA 2",
-    title: "POSICIONAMENTO E MARCA",
-    subtitle: "Seja Lembrado Antes de Ser Procurado",
-    content: [
-      "Construindo uma marca forte e confiável.",
-      "Definindo o cliente ideal.",
-      "Como vender valor em vez de preço.",
-      "Criando autoridade na sua região.",
-      "Marketing pessoal do empresário.",
-      "Diferenciais que fazem sua marcenaria se destacar.",
-      "Como transformar clientes em promotores da sua marca.",
-      "Construindo uma empresa que será lembrada por gerações."
-    ],
-    opening: "“Quem compete por preço luta pela sobrevivência. Quem constrói uma marca conquista o mercado.”",
-    impact: "“Sua marca deve chegar antes de você. Quando o cliente confiar no seu nome, o preço deixará de ser o principal fator da decisão.”",
-    closing: "“A marca abre portas antes mesmo da primeira conversa.”"
-  },
-  {
-    aula: "AULA 3",
-    title: "MARKETING DIGITAL",
-    subtitle: "Clientes Todos os Dias",
-    content: [
-      "Como atrair clientes de forma consistente.",
-      "Instagram para gerar autoridade.",
-      "Reels que despertam atenção.",
-      "Conteúdo que gera confiança.",
-      "WhatsApp como ferramenta de vendas.",
-      "Google e presença local.",
-      "Como produzir vídeos simples e profissionais.",
-      "Criando um sistema previsível de geração de clientes."
-    ],
-    opening: "“Se o mercado não conhece você, ele nunca terá a oportunidade de comprar de você.”",
-    impact: "“Quem aparece com estratégia é lembrado. Quem é lembrado vende.”",
-    closing: "“Quem aparece com estratégia vende com frequência.”"
-  },
-  {
-    aula: "AULA 4",
-    title: "VENDAS DE ALTO IMPACTO",
-    subtitle: "Vender Sem Dar Desconto",
-    content: [
-      "Entendendo o perfil do cliente.",
-      "Atendimento consultivo.",
-      "Como apresentar valor.",
-      "Orçamentos que convencem.",
-      "Técnicas de negociação.",
-      "Como quebrar objeções.",
-      "Fechamento de vendas.",
-      "Pós-venda que gera indicações."
-    ],
-    opening: "“O cliente não compra móveis. Ele compra confiança, segurança e a realização de um sonho.”",
-    impact: "“Quem vende por preço fecha uma venda. Quem vende valor conquista um cliente para a vida toda.”",
-    closing: "“Grandes vendedores não convencem. Eles ajudam o cliente a tomar a melhor decisão.”"
-  },
-  {
-    aula: "AULA 5",
-    title: "PRECIFICAÇÃO",
-    subtitle: "Lucro Não É Sorte",
-    content: [
-      "Como calcular o preço corretamente.",
-      "Custos diretos e indiretos.",
-      "Margem de lucro.",
-      "Custos ocultos.",
-      "Formação do preço final.",
-      "Como vender sem entrar em guerra de preços. - Será em Live",
-      "Indicadores financeiros.",
-      "Precificação para crescimento sustentável."
-    ],
-    opening: "“Quem não conhece seus números trabalha muito e lucra pouco.”",
-    impact: "“Preço paga contas. Lucro constrói patrimônio.”",
-    closing: "“Faturamento impressiona. Lucro transforma.”"
-  },
-  {
-    aula: "AULA 6",
-    title: "GESTÃO FINANCEIRA",
-    subtitle: "O Dinheiro Precisa Trabalhar por Você",
-    content: [
-      "Fluxo de caixa.",
-      "Capital de giro.",
-      "Controle financeiro.",
-      "Planejamento.",
-      "Indicadores.",
-      "Redução de desperdícios.",
-      "Reserva financeira.",
-      "Gestão para crescimento."
-    ],
-    opening: "“Empresas quebram por falta de gestão, não por falta de trabalho.”",
-    impact: "“Quem domina as finanças da empresa deixa de apagar incêndios e começa a construir o futuro.”",
-    closing: "“Quem controla o dinheiro controla o futuro da empresa.”"
-  },
-  {
-    aula: "AULA 7",
-    title: "PRODUÇÃO INTELIGENTE",
-    subtitle: "Produzir Mais, Desperdiçar Menos",
-    content: [
-      "Planejamento da produção.",
-      "Padronização.",
-      "Organização da oficina.",
-      "Controle de qualidade.",
-      "Gestão do tempo.",
-      "Redução de desperdícios.",
-      "Como ter pontualidade.",
-      "Aumento da produtividade."
-    ],
-    opening: "“Organização gera velocidade. Velocidade gera lucro.”",
-    impact: "“Uma produção organizada reduz custos, aumenta a qualidade e fortalece a confiança do cliente.”",
-    closing: "“Uma produção organizada entrega qualidade, reduz custos e aumenta os resultados.”"
-  },
-  {
-    aula: "AULA 8",
-    title: "LIDERANÇA E EQUIPE",
-    subtitle: "",
-    content: [
-      "Como contratar as pessoas certas.",
-      "Desenvolvendo líderes.",
-      "Comunicação eficiente.",
-      "Delegação.",
-      "Construindo uma equipe campeã."
-    ],
-    opening: "“Empresas crescem quando as pessoas crescem.”",
-    impact: "“Nenhuma máquina substitui uma equipe comprometida e bem liderada.”",
-    closing: "“Nenhuma marcenaria se torna grande sozinha.”"
-  },
-  {
-    aula: "AULA 9",
-    title: "TECNOLOGIA",
-    subtitle: "A Marcenaria do Futuro",
-    content: [
-      "Softwares de projeto.",
-      "CNC e automação.",
-      "Inteligência Artificial.",
-      "Máquinas e equipamentos.",
-      "Organização digital.",
-      "Tendências do setor.",
-      "Integração dos processos.",
-      "Tecnologia como vantagem competitiva."
-    ],
-    opening: "“A tecnologia não substitui o marceneiro. Ela potencializa quem está preparado.”",
-    impact: "“Quem investe em tecnologia ganha tempo, produtividade e competitividade.”",
-    closing: "“Quem aprende primeiro lidera o mercado.”"
-  },
-  {
-    aula: "AULA 10",
-    title: "ESCALA E CRESCIMENTO",
-    subtitle: "",
-    content: [
-      "Como sair da operação.",
-      "Estrutura organizacional.",
-      "Planejamento estratégico.",
-      "Indicadores de crescimento.",
-      "Expansão da empresa.",
-      "Novas fontes de receita.",
-      "Criando um legado para as próximas gerações."
-    ],
-    opening: "“O verdadeiro sucesso é construir uma empresa que cresce mesmo quando você não está presente.”",
-    impact: "“Seu objetivo não é trabalhar mais. É construir uma empresa capaz de crescer sem depender exclusivamente de você.”",
-    closing: "“O objetivo não é apenas fabricar móveis. É construir uma empresa sólida, lucrativa e um legado que permaneça por gerações.”"
-  },
-  {
-    aula: "AULA 11",
-    title: "EXCELÊNCIA NA MONTAGEM",
-    subtitle: "",
-    content: [
-      "Planejamento da montagem antes de sair da fábrica.",
-      "Organização de ferramentas e logística.",
-      "Técnicas para uma montagem rápida, limpa e segura.",
-      "Ajustes e acabamento de alto padrão.",
-      "Comunicação com o cliente durante a instalação.",
-      "Checklist de entrega e conferência final."
-    ],
-    opening: "“O projeto encanta no papel. A montagem conquista o cliente.”",
-    impact: "“A última impressão é a que permanece. Uma montagem impecável transforma clientes em vendedores da sua marca.”",
-    closing: "“Uma montagem de excelência não encerra uma venda. Ela inicia a próxima.”"
-  }
-];
-
-export default function MentoriaLanding() {
-  const [openModule, setOpenModule] = useState<number | null>(0);
-
-  const toggleModule = (index: number) => {
-    setOpenModule(openModule === index ? null : index);
-  };
-
-  const ctaLink = "https://pay.hotmart.com/S107087265E"; // Checkout Hotmart
+export default function Home() {
+  const [showBio, setShowBio] = useState(false);
+  const [showSchedule, setShowSchedule] = useState(false);
 
   return (
-    <main className="min-h-screen font-sans bg-[#0d0d0d] text-neutral-100 overflow-x-hidden selection:bg-[#c77a16] selection:text-white">
-      {/* Background Effect */}
-      <div className="fixed inset-0 z-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}></div>
-      <div className="fixed top-0 w-full h-[600px] bg-gradient-to-b from-[#c77a16]/10 via-[#0d0d0d]/80 to-[#0d0d0d] z-0 pointer-events-none"></div>
+    <main className="min-h-screen relative flex justify-center overflow-x-hidden font-sans text-neutral-100 bg-[#0d0d0d]">
+      
+      {/* Background Texture & Pulse Effect */}
+      <div className="absolute inset-0 z-0 opacity-[0.12] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}></div>
+      <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-[#c77a16]/10 via-[#0d0d0d]/90 to-[#0d0d0d] z-0 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }}></div>
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative z-10 w-full min-h-[90vh] flex flex-col items-center justify-center px-5 pt-20 pb-16 text-center">
-        <div className="max-w-[800px] flex flex-col items-center gap-6 animate-fade-in-up">
-          <span className="px-4 py-1.5 rounded-full border border-[#c77a16]/40 bg-[#c77a16]/10 text-[#e2a836] text-[10px] sm:text-xs font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(199,122,22,0.2)]">
-            A Formação Definitiva
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white font-sans drop-shadow-2xl leading-[1.1]">
-            Mentoria <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c77a16] via-[#e2a836] to-[#c77a16]">Viver de Marcenaria</span>
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#c77a16] to-transparent my-2 opacity-50"></div>
-          <p className="text-lg sm:text-xl text-neutral-300 font-medium leading-relaxed max-w-[650px] font-serif italic relative">
-            <FaQuoteLeft className="absolute -left-6 -top-4 text-3xl text-[#c77a16] opacity-20" />
-            &quot;O maior equipamento da sua marcenaria não é a CNC, a esquadrejadeira ou qualquer outra máquina. É a sua mente. Quando ela evolui, a empresa evolui junto.&quot;
-          </p>
+      {/* Main Content - Interactive App UX */}
+      <div className="w-full max-w-[480px] px-5 py-12 pb-8 relative z-10 flex flex-col gap-6">
+        
+        {/* Pulsing Hero Card (Mentoria) */}
+        <div className="relative animate-fade-in-up delay-100 mt-2">
+          {/* Subtle pulse ring behind the hero card */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-3xl opacity-20 blur-lg animate-pulse" style={{ animationDuration: '3s' }}></div>
+          
+          {/* Link para o Grupo Vip da Mentoria */}
+          <a href="https://chat.whatsapp.com/C8CiQWBbNg9Cs9hrMGwDnV" target="_blank" rel="noopener noreferrer" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-[#c77a16]/30 block active:scale-[0.98] transition-all shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (3).jpeg" alt="Mentoria" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
+            
+            <div className="absolute top-4 left-4 flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-[#c77a16] animate-ping"></span>
+              <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-md text-[11px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded">Vagas Abertas</span>
+            </div>
 
-          <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="mt-8 relative group w-full sm:w-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-xl blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-            <button className="relative w-full sm:w-auto px-8 py-5 bg-gradient-to-br from-[#1a110a] to-[#0a0a0a] border border-[#c77a16]/50 rounded-xl text-[#e2a836] font-black uppercase tracking-widest text-sm sm:text-base shadow-2xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all">
-              Quero Viver de Marcenaria
-            </button>
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+              <div>
+                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight">Mentoria Viver de Marcenaria</h3>
+                <p className="text-neutral-300 text-sm mt-2 max-w-[90%] leading-relaxed">Do operacional ao empresarial. Construa o seu império.</p>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-[#c77a16] flex items-center justify-center shadow-[0_0_15px_rgba(199,122,22,0.5)] group-hover:scale-110 transition-transform shrink-0">
+                <FaArrowRight className="text-[#0d0d0d] text-lg" />
+              </div>
+            </div>
           </a>
         </div>
-      </section>
 
-      {/* --- MENTOR SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-20 bg-gradient-to-b from-[#111] to-[#0d0d0d] border-y border-white/5">
-        <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-12 items-center">
-          <div className="w-full md:w-1/2 relative rounded-3xl overflow-hidden border border-[#c77a16]/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] aspect-square md:aspect-[4/5] group">
-             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent z-10"></div>
-             <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" alt="Edriano Bittencourt" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-1000" />
-             <div className="absolute bottom-6 left-6 right-6 z-20">
-               <h3 className="text-3xl font-black text-white uppercase tracking-tight">Edriano Bittencourt</h3>
-               <p className="text-[#c77a16] font-bold text-sm tracking-widest uppercase mt-1">Mentor & Marceneiro</p>
+        {/* Podcast Section */}
+        <div className="bg-[#111] border border-white/5 rounded-3xl flex flex-col overflow-hidden animate-fade-in-up delay-100 shadow-xl mt-2">
+          <div className="p-4 flex flex-col gap-3 border-b border-white/5 bg-[#161616]">
+             <div className="flex items-center justify-between">
+               <div className="flex items-center gap-3">
+                 <div className="relative">
+                   <FaYoutube className="text-[#FF0000] text-2xl" />
+                   <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+                   </span>
+                 </div>
+                 <div>
+                   <h3 className="font-bold text-[14px] text-white">Podcast Apaixonados</h3>
+                   <div className="flex items-center gap-1.5 mt-0.5">
+                     <span className="text-[10px] text-[#FF0000] uppercase tracking-wider font-bold">Programado: 09/07 às 21h</span>
+                   </div>
+                 </div>
+               </div>
+               <a href="https://www.youtube.com/@APAIXONADOSPORMARCENARIA-o4b?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-[#FF0000] hover:bg-[#CC0000] transition-colors rounded-xl text-[10px] font-black text-white uppercase tracking-widest shadow-[0_0_15px_rgba(255,0,0,0.3)]">
+                 Inscrever-se
+               </a>
              </div>
+             
+             <div className="flex gap-2">
+               <button onClick={() => setShowSchedule(!showSchedule)} className="flex-1 py-2.5 bg-[#1a1a1a] hover:bg-[#222] transition-colors rounded-xl text-[10px] font-bold text-[#c77a16] uppercase tracking-widest text-center border border-[#c77a16]/20 flex items-center justify-center gap-2">
+                 <FaCalendarAlt className="text-[#c77a16]" /> {showSchedule ? "Ocultar Agenda" : "Próximos Ao Vivos"}
+               </button>
+               <a href="https://www.youtube.com/@APAIXONADOSPORMARCENARIA-o4b/videos" target="_blank" rel="noopener noreferrer" className="flex-1 py-2.5 bg-[#1a1a1a] hover:bg-[#222] transition-colors rounded-xl text-[10px] font-bold text-neutral-300 uppercase tracking-widest text-center border border-white/5 flex items-center justify-center gap-2">
+                 <FaYoutube className="text-neutral-400" /> Anteriores
+               </a>
+             </div>
+             
+             {/* Dropdown de Agenda */}
+             {showSchedule && (
+               <div className="flex flex-col gap-2 mt-2 bg-[#0a0a0a] border border-white/5 rounded-xl p-3 animate-fade-in-up">
+                 <h4 className="text-[11px] text-neutral-400 font-bold uppercase tracking-wider mb-1">Próximos Episódios</h4>
+                 {[
+                   { id: 1, title: "APAIXONADOS POR MARCENARIA - 77 EP", date: "09/07, 21:00" },
+                   { id: 2, title: "APAIXONADOS POR MARCENARIA - 78 EP", date: "16/07, 21:00" },
+                   { id: 3, title: "APAIXONADOS POR MARCENARIA - 79 EP", date: "23/07, 21:00" },
+                   { id: 4, title: "APAIXONADOS POR MARCENARIA - 80 EP", date: "30/07, 21:00" },
+                 ].map((live) => (
+                   <div key={live.id} className="flex flex-col gap-1 p-2.5 rounded-lg bg-[#111] border border-white/5">
+                     <span className="text-[10px] text-[#FF0000] font-bold uppercase tracking-widest">{live.date}</span>
+                     <span className="text-[12px] text-white font-medium">{live.title}</span>
+                   </div>
+                  ))}
+                 </div>
+              )}
           </div>
-          <div className="w-full md:w-1/2 flex flex-col gap-6">
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white leading-tight">
-              Mais de <span className="text-[#c77a16]">40 anos</span> <br/> construindo um legado.
-            </h2>
-            <div className="flex flex-col gap-4 text-neutral-400 text-sm sm:text-base leading-relaxed">
-              <p>A marcenaria não foi uma profissão que escolhi. Foi um legado que recebi, uma missão que abracei e um propósito que decidi viver.</p>
-              <p>Meu pai foi meu primeiro mestre. Ensinou que o caráter vale mais do que qualquer ferramenta, que a palavra de um homem tem valor e que todo trabalho feito com excelência honra a Deus.</p>
-              <p>Minha missão hoje vai muito além da marcenaria. Quero formar profissionais melhores, empresários mais preparados e líderes mais humanos.</p>
+          <a href="https://www.youtube.com/live/whtTiSMxFk0" target="_blank" rel="noopener noreferrer" className="relative w-full aspect-video bg-[#0a0a0a] block group cursor-pointer border-t border-white/5 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="https://img.youtube.com/vi/whtTiSMxFk0/maxresdefault.jpg" 
+              alt="Capa do Episódio Ao Vivo"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+              onError={(e) => { e.currentTarget.src = "https://img.youtube.com/vi/whtTiSMxFk0/hqdefault.jpg" }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-16 h-12 bg-[#FF0000] rounded-xl flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.6)] group-hover:scale-110 transition-transform duration-300">
+                <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+              </div>
             </div>
-            
-            <div className="p-6 mt-4 rounded-2xl bg-[#1a110a] border border-[#c77a16]/30 relative overflow-hidden">
-              <div className="absolute -right-4 -top-4 text-6xl text-[#c77a16] opacity-10 font-serif">&quot;</div>
-              <p className="font-serif italic text-white/90 text-lg relative z-10 leading-relaxed">
-                Seu objetivo não é trabalhar mais. É construir uma empresa capaz de crescer sem depender exclusivamente de você.
-              </p>
+            <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex justify-between items-end">
+              <span className="text-white text-xs font-bold drop-shadow-md">Assistir no YouTube</span>
             </div>
-          </div>
+          </a>
         </div>
-      </section>
 
-      {/* --- MODULES SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-24">
-        <div className="max-w-[800px] mx-auto flex flex-col gap-12">
-          
-          <div className="text-center flex flex-col items-center gap-4">
-            <span className="text-[#c77a16] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase">A Jornada Completa</span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
-              O Que Você Vai Aprender
-            </h2>
-            <p className="text-neutral-400 max-w-[500px] mx-auto text-sm sm:text-base">
-              Um método desenhado passo a passo. Do operacional ao estratégico, de marceneiro a empresário de sucesso.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            {modules.map((mod, index) => {
-              const isOpen = openModule === index;
-              return (
-                <div key={index} className={`rounded-2xl border transition-all duration-500 overflow-hidden ${isOpen ? 'bg-[#161616] border-[#c77a16]/50 shadow-[0_10px_30px_rgba(199,122,22,0.1)]' : 'bg-[#111] border-white/5 hover:border-white/10'}`}>
-                  
-                  <button 
-                    onClick={() => toggleModule(index)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                      <span className={`text-[10px] font-black tracking-widest uppercase px-2 py-1 rounded border ${isOpen ? 'bg-[#c77a16]/20 border-[#c77a16] text-[#c77a16]' : 'bg-white/5 border-transparent text-neutral-500'}`}>
-                        {mod.aula}
-                      </span>
-                      <h3 className={`text-sm sm:text-base font-bold uppercase tracking-wide transition-colors ${isOpen ? 'text-white' : 'text-neutral-300'}`}>
-                        {mod.title}
-                      </h3>
-                    </div>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 shrink-0 ${isOpen ? 'bg-[#c77a16] rotate-180' : 'bg-[#1a1a1a]'}`}>
-                      <FaChevronDown className={isOpen ? 'text-black' : 'text-neutral-500'} />
-                    </div>
-                  </button>
-
-                  <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[1000px] opacity-100 pb-6 px-6' : 'max-h-0 opacity-0 px-6 overflow-hidden'}`}>
-                    
-                    {mod.subtitle && (
-                      <h4 className="text-[#e2a836] font-serif italic text-lg mb-4">{mod.subtitle}</h4>
-                    )}
-
-                    <div className="flex flex-col gap-2 mb-6 pl-2">
-                      {mod.content.map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <FaCheckCircle className="text-[#c77a16] text-sm mt-1 shrink-0" />
-                          <p className="text-neutral-300 text-sm leading-relaxed">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="bg-[#0a0a0a] rounded-xl p-5 border border-white/5 flex flex-col gap-4">
-                       <div>
-                         <span className="text-[9px] uppercase font-bold text-neutral-600 tracking-widest mb-1 block">Abertura</span>
-                         <p className="text-neutral-400 text-xs italic">{mod.opening}</p>
-                       </div>
-                       <div className="pl-4 border-l-2 border-[#c77a16]">
-                         <span className="text-[9px] uppercase font-bold text-[#c77a16] tracking-widest mb-1 block">Impacto</span>
-                         <p className="text-white text-sm font-medium">{mod.impact}</p>
-                       </div>
-                       <div>
-                         <span className="text-[9px] uppercase font-bold text-neutral-600 tracking-widest mb-1 block">Fechamento</span>
-                         <p className="text-neutral-400 text-xs italic">{mod.closing}</p>
-                       </div>
-                    </div>
-
-                  </div>
+        {/* Loja Apaixonados por Marcenaria */}
+        <div className="relative animate-fade-in-up delay-200 mt-2 mb-2">
+          <a href="https://wa.me/554799691000?text=Ol%C3%A1%2C%20gostaria%20de%20ver%20os%20produtos%20da%20Loja%20Apaixonados%20por%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[180px] rounded-3xl overflow-hidden group border border-white/10 block active:scale-[0.98] transition-all shadow-xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
+            {/* Minimal Background pattern */}
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
+            
+            <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="font-bold text-white text-2xl font-serif italic tracking-wide">Loja Apaixonados</h3>
+                  <p className="text-[#c77a16] text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Produtos Oficiais</p>
                 </div>
-              );
-            })}
-          </div>
-
+                <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center border border-white/10 shadow-lg group-hover:bg-[#c77a16] group-hover:border-[#c77a16] transition-colors">
+                  <FaShoppingCart className="text-white text-sm" />
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between mt-auto">
+                <p className="text-neutral-400 text-xs">Camisas • Bonés • Copos</p>
+                <span className="text-[10px] font-bold text-white uppercase tracking-wider bg-white/10 px-3 py-1.5 rounded-lg group-hover:bg-white group-hover:text-black transition-colors">
+                  Acessar Loja
+                </span>
+              </div>
+            </div>
+          </a>
         </div>
-      </section>
 
-      {/* --- OFFER / PRICING SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-24 bg-[#111] border-t border-white/5">
-        <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-12 items-center justify-center">
+        {/* Instagram Profile Flat Panel */}
+        <a href="https://instagram.com/canal.apaixonadospormarcenaria" target="_blank" rel="noopener noreferrer" 
+           className="bg-[#111] border border-white/5 rounded-3xl p-5 flex flex-col gap-4 hover:border-[#0095F6]/50 transition-colors block animate-fade-in-up delay-300 shadow-xl mt-1">
           
-          <div className="w-full max-w-[450px] bg-gradient-to-b from-[#1a110a] to-[#0d0d0d] rounded-3xl p-8 sm:p-10 border border-[#c77a16]/30 shadow-[0_20px_50px_rgba(199,122,22,0.15)] flex flex-col items-center text-center relative overflow-hidden group">
-            
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] bg-[#c77a16]/30 blur-[60px] pointer-events-none"></div>
-
-            <span className="text-[#c77a16] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase mb-4 relative z-10">
-              Formação Completa
-            </span>
-            <h3 className="text-3xl font-black uppercase text-white mb-6 relative z-10">
-              Mentoria <br/>Viver de Marcenaria
-            </h3>
-
-            <div className="flex flex-col gap-3 text-left w-full mb-8 relative z-10">
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-[#c77a16] mt-1 shrink-0" />
-                <span className="text-neutral-300 text-sm">Acesso completo e irrestrito às 11 Aulas exclusivas</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-[#c77a16] mt-1 shrink-0" />
-                <span className="text-neutral-300 text-sm">O mapa definitivo de marceneiro a empresário de sucesso</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-[#c77a16] mt-1 shrink-0" />
-                <span className="text-neutral-300 text-sm">Do financeiro, processos e montagem até as vendas</span>
+          <div className="flex items-center gap-4">
+            <div className="relative w-[65px] h-[65px] shrink-0">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] p-[2px] shadow-lg">
+                <div className="w-full h-full bg-[#111] rounded-full overflow-hidden relative border-[2.5px] border-[#111]">
+                  <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (4).jpeg" alt="Instagram Profile" fill className="object-cover object-[center_top]" />
+                </div>
               </div>
             </div>
-
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
-
-            <div className="flex flex-col items-center gap-2 mb-8 relative z-10">
-              <span className="text-[#c77a16] font-bold uppercase tracking-widest text-sm mb-1 animate-pulse">Inscrições Abertas</span>
-              <p className="text-neutral-400 text-center text-sm leading-relaxed px-4">
-                Clique no botão abaixo para garantir sua vaga e conferir as condições especiais de pagamento diretamente no checkout.
-              </p>
-            </div>
-
-            <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="w-full relative group/btn z-10">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-xl blur opacity-50 group-hover/btn:opacity-100 transition duration-500 animate-pulse"></div>
-              <button className="relative w-full py-5 bg-[#0d0d0d] border border-[#c77a16] rounded-xl text-[#e2a836] font-black uppercase tracking-widest text-sm shadow-2xl flex items-center justify-center hover:scale-[1.02] active:scale-[0.98] transition-all">
-                Quero Comprar Agora
-              </button>
-            </a>
             
-            <p className="text-neutral-500 text-xs mt-5 flex items-center justify-center gap-2 relative z-10">
-              <FaCheckCircle /> Compra 100% segura e garantida (Hotmart)
-            </p>
+            <div className="flex flex-col flex-1">
+              <div className="flex items-center gap-1 mb-1">
+                <h3 className="font-bold text-[14px] text-white">canal.apaixonadospormarcenaria</h3>
+                <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] text-[#0095F6] fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"/></svg>
+              </div>
+              <div className="flex items-center justify-between text-[11px] text-neutral-500 mt-1 pr-1">
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.643</span> posts</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">36,8k</span> seguidores</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.536</span> seguindo</div>
+              </div>
+            </div>
           </div>
 
-        </div>
-      </section>
+          <div className="text-[12px] text-neutral-400 leading-[1.6]">
+            Marcenaria de verdade, do legado à prática.<br/>
+            Vídeos reais e técnicas de quem vive isso há 30 anos.<br/>
+          </div>
 
-      {/* --- FINAL CTA SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-24 bg-gradient-to-t from-[#111] to-[#0d0d0d] border-t border-[#c77a16]/10 text-center">
-         <div className="max-w-[700px] mx-auto flex flex-col items-center gap-8">
-            <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight leading-tight">
-              Sua marcenaria nunca crescerá além da sua <span className="text-[#c77a16]">mentalidade</span>.
-            </h2>
-            <p className="text-neutral-400 text-lg">
-              Chegou a hora de transformar o seu ofício no seu império.
-            </p>
-            
-            <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="mt-4 relative group w-full sm:w-auto">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-2xl blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <button className="relative w-full sm:w-auto px-10 py-6 bg-[#0d0d0d] border border-[#c77a16] rounded-2xl text-[#e2a836] font-black uppercase tracking-[0.15em] text-sm sm:text-lg shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-[0.97] transition-all">
-                Garantir Minha Vaga Agora
-              </button>
-            </a>
-         </div>
-      </section>
-
-      {/* --- FOOTER --- */}
-      <footer className="relative z-10 w-full pb-8 pt-12 flex justify-center bg-[#111]">
-        <a href="https://www.wasventure.com.br" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity group">
-          <span className="text-[10px] text-neutral-500 tracking-[0.2em] font-black uppercase mt-[2px] group-hover:text-neutral-400 transition-colors">Desenvolvido por</span>
-          <div className="w-[100px] h-[40px] relative">
-            <Image src="/Logotipo ilustrado ervateria chimarrão verde, bege e marrom.png" alt="WAS." fill className="object-contain object-left" />
+          <div className="w-full py-3 bg-[#0095F6] hover:bg-[#1877F2] rounded-xl text-center text-[11px] font-black transition-colors text-white mt-1 uppercase tracking-widest shadow-[0_4px_15px_rgba(0,149,246,0.3)]">
+            Seguir no Instagram
           </div>
         </a>
-      </footer>
 
+        {/* Regular Full-Bleed Cards (Evento & Cursos) */}
+        <div className="flex flex-col gap-4 animate-fade-in-up delay-400">
+          
+          {/* Evento Presencial Link */}
+          <a href="#evento" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (26).jpeg" alt="Evento Presencial" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/60 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+              <div className="flex flex-col items-start">
+                <span className="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 border border-white/10 flex items-center gap-2 shadow-lg">
+                  <svg className="animate-spin h-3 w-3 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Turma de Outubro
+                </span>
+                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight drop-shadow-md">Imersão Presencial</h3>
+                <p className="text-neutral-300 text-sm mt-2 max-w-[95%] leading-relaxed">
+                  Viva a experiência completa. Aprenda na prática os segredos de quem construiu um legado. Em breve, lista de espera para Outubro.
+                </p>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#4de782] transition-colors shrink-0 border border-white/10 shadow-lg mb-2">
+                <FaCalendarAlt className="text-white text-lg" />
+              </div>
+            </div>
+          </a>
+
+          {/* Cursos Link */}
+          <a href="#cursos" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (8).jpeg" alt="Cursos Online" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/60 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+              <div className="flex flex-col items-start">
+                <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-sm text-[#e2a836] text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 border border-[#c77a16]/20">
+                  Formação Completa
+                </span>
+                <h3 className="font-bold text-white text-2xl tracking-wide uppercase leading-tight drop-shadow-md">Cursos Online</h3>
+                <p className="text-neutral-300 text-sm mt-2 max-w-[95%] leading-relaxed">
+                  Do básico ao avançado. Desenvolva suas habilidades no seu próprio ritmo e alcance o nível profissional. Acesse o Portal do Aluno.
+                </p>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#c77a16] transition-colors shrink-0 border border-white/10 shadow-lg mb-2">
+                <FaLaptop className="text-white text-lg" />
+              </div>
+            </div>
+          </a>
+        </div>
+
+        {/* Biography & Legacy Section - Styled like Lucas Card */}
+        <div className="relative animate-fade-in-up delay-600 flex flex-col gap-3">
+          <div className="relative w-full rounded-[24px] overflow-hidden bg-gradient-to-b from-[#1a110a] to-[#0d0d0d] border border-[#c77a16]/30 shadow-[0_10px_40px_rgba(199,122,22,0.15)]">
+            
+            {/* Background Image of Edriano */}
+            <div className="absolute right-[-25%] bottom-0 w-[125%] h-[100%] opacity-100 z-0 pointer-events-none">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/20 to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/40 to-transparent z-10"></div>
+              <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" alt="Edriano Bittencourt" fill className="object-cover object-top brightness-110" />
+            </div>
+
+            <div className="relative z-10 p-7 flex flex-col min-h-[460px]">
+              
+              {/* Top Label */}
+              <p className="text-[#c77a16] text-[9px] font-black tracking-widest uppercase mb-4 drop-shadow-md">
+                MINHA HISTÓRIA • 40 ANOS DE MARCENARIA
+              </p>
+
+              {/* Big Bold Title */}
+              <h2 className="text-[32px] font-black uppercase leading-[1.05] mb-5 tracking-tight text-white font-sans drop-shadow-lg">
+                CONSTRUA <br />
+                <span className="text-[#c77a16]">O SEU</span> <br />
+                <span className="text-[#c77a16]">LEGADO</span>
+              </h2>
+              
+              {/* Short text paragraphs */}
+              <div className="text-neutral-200 text-[12px] leading-relaxed max-w-[75%] flex flex-col gap-3 font-medium mb-6 drop-shadow-md">
+                <p>
+                  Você pode ser um bom marceneiro... mas se não construir um legado, seu trabalho será apenas madeira.
+                </p>
+                <p>
+                  Aqui você conhece a história de quem vive o ofício há mais de 4 décadas e aprende que &quot;o maior penhor que você pode deixar a um filho é o legado&quot;.
+                </p>
+              </div>
+
+              {/* Pills / Checks */}
+              <div className="flex flex-col gap-2.5 mb-8 mt-auto">
+                <div className="flex items-center gap-2 bg-[#1a110a]/80 border border-[#c77a16]/30 rounded-full px-3 py-1.5 w-fit backdrop-blur-md">
+                  <span className="text-[#c77a16] text-[10px]">✓</span>
+                  <span className="text-white text-[10px] font-bold tracking-wide">+40 Anos de Experiência</span>
+                </div>
+                <div className="flex items-center gap-2 bg-[#1a110a]/80 border border-[#c77a16]/30 rounded-full px-3 py-1.5 w-fit backdrop-blur-md">
+                  <span className="text-[#c77a16] text-[10px]">✓</span>
+                  <span className="text-white text-[10px] font-bold tracking-wide">Marceneiro e Mentor</span>
+                </div>
+                <div className="flex items-center gap-2 bg-[#1a110a]/80 border border-[#c77a16]/30 rounded-full px-3 py-1.5 w-fit backdrop-blur-md">
+                  <span className="text-[#c77a16] text-[10px]">✓</span>
+                  <span className="text-white text-[10px] font-bold tracking-wide">Resultados Comprovados</span>
+                </div>
+              </div>
+
+              {/* Bottom CTA Button */}
+              <button onClick={() => setShowBio(!showBio)} className="bg-gradient-to-r from-[#c77a16] to-[#e2a836] text-[#0d0d0d] font-black uppercase text-[11px] tracking-wide py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 w-fit hover:scale-105 transition-transform shadow-[0_0_20px_rgba(199,122,22,0.4)] active:scale-95">
+                {showBio ? "FECHAR HISTÓRIA ↑" : "LER HISTÓRIA COMPLETA ➔"}
+              </button>
+              
+            </div>
+          </div>
+
+          {/* Expanded Full Biography */}
+          {showBio && (
+            <div className="bg-[#111] border border-white/5 rounded-3xl p-6 flex flex-col gap-4 shadow-xl animate-fade-in-up">
+              <h3 className="text-[#c77a16] text-xl font-serif italic leading-tight">Uma vida construída sobre fé, família e legado</h3>
+              
+              <div className="text-neutral-400 text-[13px] leading-relaxed flex flex-col gap-3">
+                <p><strong className="text-neutral-200">A marcenaria não foi uma profissão que escolhi. Foi um legado que recebi, uma missão que abracei e um propósito que decidi viver.</strong></p>
+                <p>Meu nome é <strong className="text-[#c77a16]">Edriano Bittencourt</strong>. Há mais de quatro décadas a madeira faz parte da minha vida. São mais de 40 anos como carpinteiro e 25 anos como marceneiro, mas a minha história não começou em uma marcenaria. Ela começou dentro de casa.</p>
+                <p>Meu pai foi meu primeiro mestre. Ensinou que o caráter vale mais do que qualquer ferramenta, que a palavra de um homem tem valor e que todo trabalho feito com excelência honra a Deus.</p>
+                <p>Minha mãe despertou em mim o espírito empreendedor. Com ela aprendi que é possível transformar dificuldades em oportunidades.</p>
+                <p>Sou casado e pai de uma filha. Tudo o que construo tem um propósito maior: honrar a Deus, honrar meus pais e deixar para minha filha um exemplo que permaneça por gerações.</p>
+                <p>Minha missão hoje vai muito além da marcenaria. Quero formar profissionais melhores, empresários mais preparados e líderes mais humanos.</p>
+              </div>
+
+              <div className="mt-4 p-5 border border-[#c77a16]/30 bg-gradient-to-br from-[#c77a16]/10 to-[#0d0d0d] rounded-2xl relative overflow-hidden group">
+                <p className="text-white font-serif italic text-lg leading-relaxed text-center relative z-10">
+                  &quot;O maior penhor que você pode deixar a um filho é o legado.&quot;
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+        
+        {/* Action Button - WhatsApp */}
+        <div className="w-full animate-fade-in-up delay-700 mt-2">
+          <a href="https://wa.me/5547999695575" target="_blank" rel="noopener noreferrer" className="w-full rounded-2xl bg-[#1a1a1a]/80 backdrop-blur hover:bg-[#25D366] transition-colors py-4 px-4 flex items-center justify-center gap-3 group border border-[#c77a16]/30 hover:border-[#25D366] shadow-[0_5px_20px_rgba(37,211,102,0.15)]">
+            <FaWhatsapp className="text-[#25D366] group-hover:text-white text-2xl transition-colors" />
+            <span className="font-black text-[13px] uppercase tracking-wider text-neutral-200 group-hover:text-white transition-colors">Fale Comigo no WhatsApp</span>
+          </a>
+        </div>
+
+        <footer className="mt-4 pb-0 flex justify-center animate-fade-in-up delay-1000">
+          <a href="https://www.wasventure.com.br" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity group">
+            <span className="text-[9px] text-neutral-500 tracking-[0.2em] font-black uppercase mt-[2px] group-hover:text-neutral-400 transition-colors">Desenvolvido por</span>
+            <div className="w-[95px] h-[38px] relative">
+              <Image src="/Logotipo ilustrado ervateria chimarrão verde, bege e marrom.png" alt="WAS." fill className="object-contain object-left" />
+            </div>
+          </a>
+        </footer>
+
+      </div>
     </main>
   );
 }
