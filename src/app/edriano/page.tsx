@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
-import { FaYoutube, FaWhatsapp, FaArrowRight, FaLaptop, FaCalendarAlt, FaShoppingCart } from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaWhatsapp, FaArrowRight, FaUsers, FaLaptop, FaHammer, FaCalendarAlt, FaChevronRight, FaShoppingCart, FaSpinner } from "react-icons/fa";
 
 export default function Home() {
   const [showBio, setShowBio] = useState(false);
@@ -17,25 +17,25 @@ export default function Home() {
       {/* Main Content - Interactive App UX */}
       <div className="w-full max-w-[480px] px-5 py-12 pb-8 relative z-10 flex flex-col gap-6">
         
+
         {/* Pulsing Hero Card (Mentoria) */}
-        <div className="relative animate-fade-in-up delay-100 mt-2">
+        <div className="relative animate-fade-in-up delay-300 mt-2">
           {/* Subtle pulse ring behind the hero card */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-3xl opacity-20 blur-lg animate-pulse" style={{ animationDuration: '3s' }}></div>
           
-          {/* Link para o Grupo Vip da Mentoria */}
           <a href="https://chat.whatsapp.com/C8CiQWBbNg9Cs9hrMGwDnV" target="_blank" rel="noopener noreferrer" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-[#c77a16]/30 block active:scale-[0.98] transition-all shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
             <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (3).jpeg" alt="Mentoria" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-1000" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
             
             <div className="absolute top-4 left-4 flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-[#c77a16] animate-ping"></span>
-              <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-md text-[11px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded">Vagas Abertas</span>
+              <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-md text-[11px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded">01 de Setembro de 2026</span>
             </div>
 
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
                 <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight">Mentoria Viver de Marcenaria</h3>
-                <p className="text-neutral-300 text-sm mt-2 max-w-[90%] leading-relaxed">Do operacional ao empresarial. Construa o seu império.</p>
+                <p className="text-neutral-300 text-sm mt-2 max-w-[90%] leading-relaxed">A mentoria será liberada dia 1º de Setembro de 2026. Entre no grupo e aguarde!</p>
               </div>
               <div className="w-12 h-12 rounded-full bg-[#c77a16] flex items-center justify-center shadow-[0_0_15px_rgba(199,122,22,0.5)] group-hover:scale-110 transition-transform shrink-0">
                 <FaArrowRight className="text-[#0d0d0d] text-lg" />
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
 
         {/* Podcast Section */}
-        <div className="bg-[#111] border border-white/5 rounded-3xl flex flex-col overflow-hidden animate-fade-in-up delay-100 shadow-xl mt-2">
+        <div className="bg-[#111] border border-white/5 rounded-3xl flex flex-col overflow-hidden animate-fade-in-up delay-400 shadow-xl mt-2">
           <div className="p-4 flex flex-col gap-3 border-b border-white/5 bg-[#161616]">
              <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
@@ -115,7 +115,7 @@ export default function Home() {
         </div>
 
         {/* Loja Apaixonados por Marcenaria */}
-        <div className="relative animate-fade-in-up delay-200 mt-2 mb-2">
+        <div className="relative animate-fade-in-up delay-500 mt-2">
           <a href="https://wa.me/554799691000?text=Ol%C3%A1%2C%20gostaria%20de%20ver%20os%20produtos%20da%20Loja%20Apaixonados%20por%20Marcenaria!" target="_blank" rel="noopener noreferrer" className="relative w-full h-[180px] rounded-3xl overflow-hidden group border border-white/10 block active:scale-[0.98] transition-all shadow-xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
             {/* Minimal Background pattern */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
@@ -141,9 +141,48 @@ export default function Home() {
           </a>
         </div>
 
+        {/* Regular Full-Bleed Cards (Evento & Cursos) */}
+        <div className="flex flex-col gap-4 animate-fade-in-up delay-600">
+          
+          {/* Evento Presencial Link */}
+          <a href="#evento" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (26).jpeg" alt="Evento Presencial" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+              <div className="flex flex-col items-start pr-4">
+                <span className="px-3 py-1 bg-white/10 backdrop-blur-md text-[9px] font-black tracking-widest uppercase text-white border border-white/10 rounded-full mb-2 flex items-center gap-2">
+                  <FaSpinner className="animate-spin text-[#4de782]" />
+                  Em Outubro
+                </span>
+                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight">Imersão Presencial</h3>
+                <p className="text-neutral-300 text-[11px] mt-2 max-w-[95%] leading-relaxed">Viva a experiência completa. Aprenda na prática os segredos de quem construiu um legado na marcenaria. Garanta sua vaga no próximo evento.</p>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-[#4de782] flex items-center justify-center backdrop-blur-sm group-hover:scale-110 shadow-[0_0_20px_rgba(77,231,130,0.4)] transition-all shrink-0">
+                <FaCalendarAlt className="text-white text-lg" />
+              </div>
+            </div>
+          </a>
+
+          {/* Cursos Link */}
+          <a href="#cursos" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (8).jpeg" alt="Cursos Online" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+              <div className="flex flex-col items-start pr-4">
+                <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-md text-[9px] font-black tracking-widest uppercase text-[#c77a16] border border-[#c77a16]/30 rounded-full mb-2">Formação Completa</span>
+                <h3 className="font-bold text-white text-2xl tracking-wide uppercase leading-tight">Cursos Online</h3>
+                <p className="text-neutral-300 text-[11px] mt-2 max-w-[100%] leading-relaxed">Do básico ao avançado. Desenvolva suas habilidades no seu próprio ritmo e alcance o nível profissional. Acesse o Portal do Aluno.</p>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#c77a16] transition-colors shrink-0 border border-white/10">
+                <FaLaptop className="text-white text-lg" />
+              </div>
+            </div>
+          </a>
+        </div>
+
         {/* Instagram Profile Flat Panel */}
-        <a href="https://instagram.com/canal.apaixonadospormarcenaria" target="_blank" rel="noopener noreferrer" 
-           className="bg-[#111] border border-white/5 rounded-3xl p-5 flex flex-col gap-4 hover:border-[#0095F6]/50 transition-colors block animate-fade-in-up delay-300 shadow-xl mt-1">
+        <a href="https://instagram.com/edriano_bittencourt" target="_blank" rel="noopener noreferrer" 
+           className="bg-[#111] border border-white/5 rounded-3xl p-5 flex flex-col gap-4 hover:border-[#0095F6]/50 transition-colors block animate-fade-in-up delay-700 shadow-xl mt-1">
           
           <div className="flex items-center gap-4">
             <div className="relative w-[65px] h-[65px] shrink-0">
@@ -156,84 +195,35 @@ export default function Home() {
             
             <div className="flex flex-col flex-1">
               <div className="flex items-center gap-1 mb-1">
-                <h3 className="font-bold text-[14px] text-white">canal.apaixonadospormarcenaria</h3>
+                <h3 className="font-bold text-[14px] text-white">edriano_bittencourt</h3>
                 <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] text-[#0095F6] fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"/></svg>
               </div>
               <div className="flex items-center justify-between text-[11px] text-neutral-500 mt-1 pr-1">
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.643</span> posts</div>
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">36,8k</span> seguidores</div>
-                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">1.536</span> seguindo</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">479</span> posts</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">3.406</span> seguidores</div>
+                <div className="flex flex-col items-center"><span className="font-bold text-sm text-white">153</span> seguindo</div>
               </div>
             </div>
           </div>
 
           <div className="text-[12px] text-neutral-400 leading-[1.6]">
-            Marcenaria de verdade, do legado à prática.<br/>
-            Vídeos reais e técnicas de quem vive isso há 30 anos.<br/>
+            Profissional da área de marcenaria atua a mais de 30 anos no mercado, criador de conteúdo digital, sócio fundador da...
           </div>
 
           <div className="w-full py-3 bg-[#0095F6] hover:bg-[#1877F2] rounded-xl text-center text-[11px] font-black transition-colors text-white mt-1 uppercase tracking-widest shadow-[0_4px_15px_rgba(0,149,246,0.3)]">
             Seguir no Instagram
           </div>
         </a>
-
-        {/* Regular Full-Bleed Cards (Evento & Cursos) */}
-        <div className="flex flex-col gap-4 animate-fade-in-up delay-400">
-          
-          {/* Evento Presencial Link */}
-          <a href="#evento" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (26).jpeg" alt="Evento Presencial" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/60 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-              <div className="flex flex-col items-start">
-                <span className="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 border border-white/10 flex items-center gap-2 shadow-lg">
-                  <svg className="animate-spin h-3 w-3 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Turma de Outubro
-                </span>
-                <h3 className="font-bold text-white text-3xl font-serif italic tracking-wide leading-tight drop-shadow-md">Imersão Presencial</h3>
-                <p className="text-neutral-300 text-sm mt-2 max-w-[95%] leading-relaxed">
-                  Viva a experiência completa. Aprenda na prática os segredos de quem construiu um legado. Em breve, lista de espera para Outubro.
-                </p>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#4de782] transition-colors shrink-0 border border-white/10 shadow-lg mb-2">
-                <FaCalendarAlt className="text-white text-lg" />
-              </div>
-            </div>
-          </a>
-
-          {/* Cursos Link */}
-          <a href="#cursos" className="relative w-full h-[400px] rounded-3xl overflow-hidden group border border-white/5 block active:scale-[0.98] transition-transform shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-            <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (8).jpeg" alt="Cursos Online" fill className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/60 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-              <div className="flex flex-col items-start">
-                <span className="px-3 py-1 bg-[#c77a16]/20 backdrop-blur-sm text-[#e2a836] text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 border border-[#c77a16]/20">
-                  Formação Completa
-                </span>
-                <h3 className="font-bold text-white text-2xl tracking-wide uppercase leading-tight drop-shadow-md">Cursos Online</h3>
-                <p className="text-neutral-300 text-sm mt-2 max-w-[95%] leading-relaxed">
-                  Do básico ao avançado. Desenvolva suas habilidades no seu próprio ritmo e alcance o nível profissional. Acesse o Portal do Aluno.
-                </p>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-[#1a1a1a]/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#c77a16] transition-colors shrink-0 border border-white/10 shadow-lg mb-2">
-                <FaLaptop className="text-white text-lg" />
-              </div>
-            </div>
-          </a>
-        </div>
-
+        
         {/* Biography & Legacy Section - Styled like Lucas Card */}
-        <div className="relative animate-fade-in-up delay-600 flex flex-col gap-3">
+        <div className="relative animate-fade-in-up delay-100 flex flex-col gap-3">
           <div className="relative w-full rounded-[24px] overflow-hidden bg-gradient-to-b from-[#1a110a] to-[#0d0d0d] border border-[#c77a16]/30 shadow-[0_10px_40px_rgba(199,122,22,0.15)]">
             
             {/* Background Image of Edriano */}
             <div className="absolute right-[-25%] bottom-0 w-[125%] h-[100%] opacity-100 z-0 pointer-events-none">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/20 to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/30 to-transparent z-10"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/40 to-transparent z-10"></div>
-              <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" alt="Edriano Bittencourt" fill className="object-cover object-top brightness-110" />
+              <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" alt="Edriano Bittencourt" fill className="object-cover object-top" />
             </div>
 
             <div className="relative z-10 p-7 flex flex-col min-h-[460px]">
@@ -306,9 +296,9 @@ export default function Home() {
             </div>
           )}
         </div>
-        
+
         {/* Action Button - WhatsApp */}
-        <div className="w-full animate-fade-in-up delay-700 mt-2">
+        <div className="w-full animate-fade-in-up delay-1000 mt-2">
           <a href="https://wa.me/5547999695575" target="_blank" rel="noopener noreferrer" className="w-full rounded-2xl bg-[#1a1a1a]/80 backdrop-blur hover:bg-[#25D366] transition-colors py-4 px-4 flex items-center justify-center gap-3 group border border-[#c77a16]/30 hover:border-[#25D366] shadow-[0_5px_20px_rgba(37,211,102,0.15)]">
             <FaWhatsapp className="text-[#25D366] group-hover:text-white text-2xl transition-colors" />
             <span className="font-black text-[13px] uppercase tracking-wider text-neutral-200 group-hover:text-white transition-colors">Fale Comigo no WhatsApp</span>
