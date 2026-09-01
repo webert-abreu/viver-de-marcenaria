@@ -179,91 +179,80 @@ export default function MentoriaPage() {
             </div>
           </div>
 
-          {/* RIGHT — Composited 3D Scene with Photo */}
+          {/* RIGHT — 3D Floating Scene with Transparent Cutout */}
           <div className="w-full lg:w-[45%] flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[440px] aspect-[3/4]" style={{ perspective: "1200px" }}>
+            <div className="relative w-full max-w-[480px] h-[520px] sm:h-[580px] flex items-end justify-center">
 
-              {/* ===== BACK LAYER — Real 3D tools behind Edriano (slightly blurred) ===== */}
+              {/* Ambient Golden Glow Halo (Behind Edriano) */}
+              <div 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full bg-gradient-to-tr from-[#c77a16]/30 via-[#e2a836]/20 to-transparent blur-[80px] pointer-events-none"
+                style={{ zIndex: 1 }}
+              ></div>
+
+              {/* ===== BACK LAYER — 3D Tools Behind Edriano (Clear & Floating) ===== */}
               
-              {/* Wood Plank — back left, tilted */}
+              {/* Wood Plank — Top Left */}
               <div 
-                className="absolute -left-16 top-[12%] w-[160px] h-[160px] animate-float-slow pointer-events-none"
-                style={{ transform: "rotateZ(-15deg) rotateY(20deg)", filter: "blur(3px)", zIndex: 1 }}
+                className="absolute -left-10 top-[8%] w-[190px] h-[190px] animate-float-slow pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                style={{ transform: "rotate(-25deg)", zIndex: 2 }}
               >
-                <Image src="/wood_plank_3d.jpg" alt="" fill className="object-contain" />
+                <Image src="/wood_plank_3d.png" alt="Madeira 3D" fill className="object-contain" />
               </div>
 
-              {/* Hammer — back right, angled */}
+              {/* Hammer — Top Right */}
               <div 
-                className="absolute -right-14 top-[5%] w-[150px] h-[150px] animate-float-reverse pointer-events-none"
-                style={{ transform: "rotateZ(10deg)", filter: "blur(2px)", zIndex: 1 }}
+                className="absolute -right-8 top-[5%] w-[180px] h-[180px] animate-float-reverse pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                style={{ transform: "rotate(20deg)", zIndex: 2 }}
               >
-                <Image src="/hammer_3d.jpg" alt="" fill className="object-contain" />
+                <Image src="/hammer_3d.png" alt="Martelo 3D" fill className="object-contain" />
               </div>
 
-              {/* Chisel — back bottom-left */}
+              {/* Chisel — Mid Left Behind */}
               <div 
-                className="absolute -left-10 bottom-[8%] w-[130px] h-[130px] animate-float-medium pointer-events-none"
-                style={{ transform: "rotateZ(25deg)", filter: "blur(2px)", zIndex: 1 }}
+                className="absolute -left-12 bottom-[25%] w-[170px] h-[170px] animate-float-medium pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                style={{ transform: "rotate(35deg)", zIndex: 2 }}
               >
-                <Image src="/chisel_3d.jpg" alt="" fill className="object-contain" />
+                <Image src="/chisel_3d.png" alt="Formão 3D" fill className="object-contain" />
               </div>
 
 
-              {/* ===== MIDDLE LAYER — Edriano Photo ===== */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)]" style={{ zIndex: 5 }}>
+              {/* ===== MIDDLE LAYER — Transparent Edriano Cutout ===== */}
+              <div className="relative w-full h-full flex items-end justify-center pointer-events-none" style={{ zIndex: 5 }}>
                 <Image
-                  src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg"
+                  src="/edriano_cutout.png"
                   alt="Edriano Bittencourt - Mentor"
                   fill
                   priority
-                  className="object-cover object-top brightness-105"
+                  className="object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]"
                 />
-                {/* Edge vignette to blend into dark bg */}
-                <div className="absolute inset-0 shadow-[inset_0_0_80px_30px_#060606]"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-transparent to-transparent opacity-80"></div>
-                <div className="absolute inset-0 bg-gradient-to-l from-[#060606]/50 via-transparent to-[#060606]/50"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#060606]/40 via-transparent to-transparent"></div>
-                
-                {/* Name label */}
-                <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent" style={{ zIndex: 6 }}>
-                  <p className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.2em]">MENTOR PRINCIPAL</p>
-                  <p className="text-xl font-bold text-white">Edriano Bittencourt</p>
-                </div>
               </div>
 
 
-              {/* ===== FRONT LAYER — 3D tools in front with heavy bokeh ===== */}
+              {/* ===== FRONT LAYER — 3D Tools in Foreground (Sharp & Floating) ===== */}
 
-              {/* Wood Plank piece — front right, strong bokeh */}
+              {/* Wood Plank — Front Bottom Right */}
               <div 
-                className="absolute -right-12 bottom-[28%] w-[140px] h-[140px] animate-float-medium pointer-events-none"
-                style={{ transform: "rotateZ(30deg) scaleX(-1)", filter: "blur(8px)", zIndex: 10 }}
+                className="absolute -right-10 bottom-[10%] w-[170px] h-[170px] animate-float-medium pointer-events-none drop-shadow-[0_25px_40px_rgba(0,0,0,0.9)]"
+                style={{ transform: "rotate(15deg)", zIndex: 10 }}
               >
-                <Image src="/wood_plank_3d.jpg" alt="" fill className="object-contain" />
+                <Image src="/wood_plank_3d.png" alt="Madeira 3D" fill className="object-contain" />
               </div>
 
-              {/* Chisel — front top-left, bokeh */}
+              {/* Chisel — Front Bottom Left */}
               <div 
-                className="absolute -left-8 top-[30%] w-[110px] h-[110px] animate-float-reverse pointer-events-none"
-                style={{ transform: "rotateZ(-40deg) scaleX(-1)", filter: "blur(10px)", zIndex: 10 }}
+                className="absolute -left-4 bottom-[5%] w-[150px] h-[150px] animate-float-slow pointer-events-none drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
+                style={{ transform: "rotate(-30deg)", zIndex: 10 }}
               >
-                <Image src="/chisel_3d.jpg" alt="" fill className="object-contain" />
+                <Image src="/chisel_3d.png" alt="Formão 3D" fill className="object-contain" />
               </div>
 
-              {/* Hammer — front bottom-right, subtle bokeh */}
+              {/* Hammer — Front Mid Right */}
               <div 
-                className="absolute right-[-5%] top-[60%] w-[100px] h-[100px] animate-float-slow pointer-events-none"
-                style={{ transform: "rotateZ(-20deg)", filter: "blur(6px)", zIndex: 10 }}
+                className="absolute right-[-15px] top-[40%] w-[140px] h-[140px] animate-float-reverse pointer-events-none drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
+                style={{ transform: "rotate(-15deg)", zIndex: 10 }}
               >
-                <Image src="/hammer_3d.jpg" alt="" fill className="object-contain" />
+                <Image src="/hammer_3d.png" alt="Martelo 3D" fill className="object-contain" />
               </div>
-
-              {/* Warm ambient glow — extreme bokeh (gives depth) */}
-              <div 
-                className="absolute right-[-20px] bottom-[40%] w-[90px] h-[90px] rounded-full bg-[#c77a16]/15 animate-float-slow pointer-events-none"
-                style={{ filter: "blur(18px)", zIndex: 10 }}
-              ></div>
 
             </div>
           </div>
