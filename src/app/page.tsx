@@ -6,10 +6,7 @@ import {
   FaChevronDown, 
   FaCheckCircle, 
   FaQuoteLeft, 
-  FaShieldAlt, 
-  FaExclamationTriangle,
-  FaArrowRight,
-  FaCheck
+  FaArrowRight
 } from "react-icons/fa";
 
 const modules = [
@@ -86,12 +83,12 @@ const modules = [
 ];
 
 const painPoints = [
-  { icon: "⏰", title: "Escravo da própria oficina", desc: "Trabalha 12 a 16 horas por dia cortando e montando, mas o dinheiro nunca sobra no final do mês." },
-  { icon: "💸", title: "Refém do cliente 'chorão'", desc: "Clientes que só pedem desconto e comparam seu trabalho artesanal com móveis de magazine." },
-  { icon: "😰", title: "Insegurança na Precificação", desc: "Medo constante de cobrar caro e perder a venda, ou cobrar barato e pagar para trabalhar." },
-  { icon: "👨‍👩‍👧", title: "Sem tempo para a família", desc: "Não consegue tirar férias porque se você não estiver na oficina, a produção para totalmente." },
-  { icon: "📉", title: "Faturamento estagnado", desc: "Trabalha cada vez mais, mas o lucro não cresce. Sem método de gestão, o teto de vidro nunca quebra." },
-  { icon: "🔧", title: "Preso no operacional", desc: "Você faz tudo: corta, monta, atende, cobra, compra material. Não sobra tempo para crescer." }
+  { title: "ESCRAVO DA PRÓPRIA OFICINA", desc: "Trabalha 12 a 16 horas por dia cortando e montando, mas o dinheiro nunca sobra no final do mês." },
+  { title: "REFÉM DO CLIENTE 'CHORÃO'", desc: "Clientes que só pedem desconto e comparam seu trabalho artesanal com móveis de magazine." },
+  { title: "INSEGURANÇA NA PRECIFICAÇÃO", desc: "Medo constante de cobrar caro e perder a venda, ou cobrar barato e pagar para trabalhar." },
+  { title: "SEM TEMPO PARA A FAMÍLIA", desc: "Não consegue tirar férias porque se você não estiver na oficina, a produção para totalmente." },
+  { title: "FATURAMENTO ESTAGNADO", desc: "Trabalha cada vez mais, mas o lucro não cresce. Sem método de gestão, o teto de vidro nunca quebra." },
+  { title: "PRESO NO OPERACIONAL", desc: "Você faz tudo: corta, monta, atende, cobra, compra material. Não sobra tempo para crescer." }
 ];
 
 const targetAudiences = [
@@ -123,70 +120,87 @@ export default function MentoriaPage() {
     <main className="min-h-screen text-white bg-[#060606] font-sans overflow-x-hidden">
 
       {/* ================================================================
-          HERO — Full Viewport, Cinematic Background
+          HERO — Split Layout (Text Left + Photo Right)
          ================================================================ */}
-      <section className="relative w-full min-h-screen flex items-end justify-center overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center overflow-hidden">
         
-        {/* Full Background Photo */}
-        <Image
-          src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg"
-          alt="Edriano Bittencourt"
-          fill
-          priority
-          className="object-cover object-top brightness-[0.55]"
-        />
+        {/* Ambient Light Effects */}
+        <div className="absolute top-[-150px] right-[-100px] w-[600px] h-[600px] bg-[#c77a16]/8 blur-[180px] pointer-events-none"></div>
+        <div className="absolute bottom-[-100px] left-[-100px] w-[400px] h-[400px] bg-[#c77a16]/5 blur-[120px] pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover" }}></div>
 
-        {/* Cinematic Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-[#060606]/60 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060606]/80 via-transparent to-[#060606]/40"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#060606] to-transparent"></div>
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10 py-16 flex flex-col lg:flex-row items-center gap-10 lg:gap-6">
+          
+          {/* LEFT — Text Content */}
+          <div className="w-full lg:w-[55%] flex flex-col gap-7">
 
-        {/* Hero Content Overlay */}
-        <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-10 pb-16 sm:pb-24 flex flex-col gap-6">
-
-          {/* Exclusivity Tag */}
-          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-black/50 backdrop-blur-md border border-[#c77a16]/50 w-fit shadow-[0_0_30px_rgba(199,122,22,0.15)]">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#e2a836] shadow-[0_0_12px_#e2a836] animate-pulse"></span>
-            <span className="text-[11px] sm:text-xs font-black tracking-[0.2em] uppercase text-[#e2a836]">
-              MENTORIA EXCLUSIVA • VAGAS LIMITADAS
+            {/* Top Label — Clean, no pill */}
+            <span className="text-[11px] text-[#e2a836] font-black tracking-[0.3em] uppercase">
+              MENTORIA EXCLUSIVA — VAGAS LIMITADAS
             </span>
-          </div>
 
-          {/* Giant Headline */}
-          <h1 className="text-[42px] sm:text-[56px] md:text-[72px] lg:text-[86px] font-black uppercase leading-[0.95] tracking-tighter max-w-[900px]">
-            <span className="text-white/90">DO OPERACIONAL</span><br/>
-            <span className="text-white/90">AO </span>
-            <span className="bg-gradient-to-r from-[#e2a836] via-[#f7d58b] to-[#c77a16] bg-clip-text text-transparent">
-              EMPRESARIAL
-            </span>
-          </h1>
+            {/* Giant Headline */}
+            <h1 className="text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-black uppercase leading-[0.95] tracking-tighter">
+              <span className="text-white/90">DO OPERACIONAL</span><br/>
+              <span className="text-white/90">AO </span>
+              <span className="bg-gradient-to-r from-[#e2a836] via-[#f7d58b] to-[#c77a16] bg-clip-text text-transparent">
+                EMPRESARIAL
+              </span>
+            </h1>
 
-          {/* Subheadline */}
-          <p className="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-[560px] font-medium">
-            O método prático para marceneiros que desejam <strong className="text-white">multiplicar o lucro</strong>, atrair clientes de alto padrão e conquistar a <strong className="text-white">liberdade</strong> que sempre sonharam.
-          </p>
+            {/* Subheadline */}
+            <p className="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-[520px]">
+              O método prático para marceneiros que desejam <strong className="text-white">multiplicar o lucro</strong>, atrair clientes de alto padrão e conquistar a liberdade que sempre sonharam.
+            </p>
 
-          {/* CTA + Authority Row */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-2">
+            {/* CTA Button */}
             <a 
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-[#c77a16] via-[#e2a836] to-[#c77a16] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-[#060606] font-black text-sm sm:text-base uppercase tracking-wider flex items-center gap-3 shadow-[0_0_50px_rgba(226,168,54,0.35)] active:scale-[0.97] hover:-translate-y-0.5"
+              className="w-fit px-8 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-[#c77a16] via-[#e2a836] to-[#c77a16] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-[#060606] font-black text-sm sm:text-base uppercase tracking-wider flex items-center gap-3 shadow-[0_0_50px_rgba(226,168,54,0.3)] active:scale-[0.97] hover:-translate-y-0.5"
             >
               <FaWhatsapp className="text-2xl" />
               ENTRAR NO GRUPO VIP
               <FaArrowRight className="text-sm" />
             </a>
 
-            <div className="flex items-center gap-3 text-sm text-neutral-400">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 backdrop-blur border border-white/10">
-                <span className="text-[#e2a836] font-black text-lg">+40</span>
-                <span className="text-xs leading-tight font-medium">Anos de<br/>Experiência</span>
+            {/* Authority Numbers — Clean, no pill */}
+            <div className="flex items-center gap-6 mt-2">
+              <div>
+                <span className="text-3xl font-black text-[#e2a836] block leading-none">+40</span>
+                <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-bold mt-1 block">Anos de Experiência</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 backdrop-blur border border-white/10">
-                <span className="text-[#e2a836] font-black text-lg">+25</span>
-                <span className="text-xs leading-tight font-medium">Anos de<br/>Marcenaria</span>
+              <div className="w-px h-10 bg-white/10"></div>
+              <div>
+                <span className="text-3xl font-black text-[#e2a836] block leading-none">+25</span>
+                <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-bold mt-1 block">Anos de Marcenaria</span>
+              </div>
+              <div className="w-px h-10 bg-white/10"></div>
+              <div>
+                <span className="text-3xl font-black text-[#e2a836] block leading-none">100+</span>
+                <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-bold mt-1 block">Mentorados</span>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — Edriano Photo */}
+          <div className="w-full lg:w-[45%] flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
+              <Image
+                src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg"
+                alt="Edriano Bittencourt - Mentor"
+                fill
+                priority
+                className="object-cover object-top brightness-105"
+              />
+              {/* Bottom gradient fade only */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/70 via-transparent to-transparent"></div>
+
+              {/* Name label at bottom */}
+              <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.2em]">MENTOR PRINCIPAL</p>
+                <p className="text-xl font-bold text-white">Edriano Bittencourt</p>
               </div>
             </div>
           </div>
@@ -196,11 +210,10 @@ export default function MentoriaPage() {
 
 
       {/* ================================================================
-          DIAGNÓSTICO — O Teto de Vidro (Pain Points Grid)
+          DIAGNÓSTICO — O Teto de Vidro (Clean Cards, No Icons)
          ================================================================ */}
       <section className="relative w-full py-20 sm:py-28 overflow-hidden">
 
-        {/* Subtle background glow */}
         <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#c77a16]/5 blur-[150px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-[1100px] mx-auto px-6 sm:px-10">
@@ -220,23 +233,22 @@ export default function MentoriaPage() {
             </p>
           </div>
 
-          {/* Pain Points Grid */}
+          {/* Pain Points Grid — Clean, no emojis, no icons */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {painPoints.map((item, i) => (
               <div 
                 key={i}
-                className="group p-6 rounded-3xl bg-gradient-to-b from-[#110d08] to-[#0a0805] border border-[#c77a16]/15 hover:border-[#c77a16]/50 transition-all duration-300 flex flex-col gap-3 shadow-lg hover:shadow-[0_10px_40px_rgba(199,122,22,0.1)]"
+                className="p-6 rounded-2xl bg-[#0e0b08] border border-white/5 hover:border-[#c77a16]/30 transition-colors duration-300 flex flex-col gap-3"
               >
-                <div className="text-3xl mb-1">{item.icon}</div>
-                <h3 className="font-black text-white text-base uppercase tracking-tight">{item.title}</h3>
+                <h3 className="font-black text-white text-sm uppercase tracking-wide leading-snug">{item.title}</h3>
                 <p className="text-neutral-400 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 p-6 rounded-2xl bg-[#0e0a06] border border-[#c77a16]/30 text-center max-w-[700px] mx-auto">
+          <div className="mt-10 p-6 rounded-2xl bg-[#0e0a06] border border-[#c77a16]/20 text-center max-w-[700px] mx-auto">
             <p className="text-neutral-200 text-sm sm:text-base font-medium">
-              💡 <strong>A boa notícia:</strong> Não é falta de trabalho ou de qualidade. É apenas a falta do <strong className="text-[#e2a836]">Método Certo de Gestão</strong>. E ele existe.
+              A boa notícia: não é falta de trabalho ou de qualidade. É apenas a falta do <strong className="text-[#e2a836]">Método Certo de Gestão</strong>. E ele existe.
             </p>
           </div>
 
@@ -245,7 +257,7 @@ export default function MentoriaPage() {
 
 
       {/* ================================================================
-          PARA QUEM É — Poster Cards (Inspirado na Ref. 3)
+          PARA QUEM É — Poster Cards
          ================================================================ */}
       <section className="relative w-full py-20 sm:py-28 bg-gradient-to-b from-[#060606] via-[#0a0704] to-[#060606]">
 
@@ -268,20 +280,20 @@ export default function MentoriaPage() {
             {targetAudiences.map((aud, i) => (
               <div 
                 key={i}
-                className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden border border-[#c77a16]/25 group shadow-[0_20px_60px_rgba(0,0,0,0.6)] hover:border-[#c77a16]/60 transition-all duration-500"
+                className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden border border-white/5 group shadow-[0_20px_60px_rgba(0,0,0,0.6)] hover:border-[#c77a16]/40 transition-all duration-500"
               >
                 <Image 
                   src={aud.image} 
                   alt={aud.title} 
                   fill 
-                  className="object-cover object-top group-hover:scale-110 transition-transform duration-1000 brightness-[0.7] group-hover:brightness-[0.85]" 
+                  className="object-cover object-top group-hover:scale-110 transition-transform duration-1000 brightness-[0.6] group-hover:brightness-[0.75]" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-[#060606]/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-[#060606]/50 to-transparent"></div>
 
                 <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#c77a16] to-[#e2a836] text-[#060606] font-black text-xl flex items-center justify-center shadow-xl">
+                  <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#c77a16] to-[#e2a836] text-[#060606] font-black text-xl flex items-center justify-center shadow-xl">
                     {aud.step}
-                  </div>
+                  </span>
 
                   <div>
                     <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight leading-tight">
@@ -297,7 +309,7 @@ export default function MentoriaPage() {
           </div>
 
           <p className="text-center text-neutral-400 text-base mt-10 font-medium max-w-[500px] mx-auto">
-            Não precisa de experiência em gestão. <br/>
+            Não precisa de experiência em gestão.<br/>
             <strong className="text-[#e2a836]">Vamos do zero ao empresarial.</strong>
           </p>
 
@@ -306,11 +318,11 @@ export default function MentoriaPage() {
 
 
       {/* ================================================================
-          MÓDULOS — Accordion (Inspirado na Ref. 2)
+          MÓDULOS — Accordion
          ================================================================ */}
       <section className="relative w-full py-20 sm:py-28">
 
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
 
         <div className="relative z-10 max-w-[800px] mx-auto px-6 sm:px-10">
 
@@ -329,7 +341,6 @@ export default function MentoriaPage() {
             </p>
           </div>
 
-          {/* Module Accordions */}
           <div className="flex flex-col gap-3">
             {modules.map((mod, idx) => {
               const isOpen = openModule === idx;
@@ -338,8 +349,8 @@ export default function MentoriaPage() {
                   key={idx}
                   className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                     isOpen 
-                      ? "bg-gradient-to-b from-[#140e08] to-[#0a0704] border-[#c77a16]/50 shadow-[0_15px_50px_rgba(199,122,22,0.12)]" 
-                      : "bg-[#0c0906] border-white/5 hover:border-[#c77a16]/25"
+                      ? "bg-gradient-to-b from-[#140e08] to-[#0a0704] border-[#c77a16]/40 shadow-[0_15px_50px_rgba(199,122,22,0.1)]" 
+                      : "bg-[#0c0906] border-white/5 hover:border-[#c77a16]/20"
                   }`}
                 >
                   <button 
@@ -349,8 +360,8 @@ export default function MentoriaPage() {
                     <div className="flex items-center gap-4">
                       <span className={`w-12 h-12 rounded-xl flex items-center justify-center font-black text-base shrink-0 transition-all duration-300 ${
                         isOpen 
-                          ? "bg-gradient-to-br from-[#c77a16] to-[#e2a836] text-[#060606] shadow-[0_0_20px_rgba(199,122,22,0.3)]" 
-                          : "bg-[#1a120b] text-[#e2a836] border border-[#c77a16]/20"
+                          ? "bg-gradient-to-br from-[#c77a16] to-[#e2a836] text-[#060606] shadow-[0_0_20px_rgba(199,122,22,0.25)]" 
+                          : "bg-[#1a120b] text-[#e2a836] border border-[#c77a16]/15"
                       }`}>
                         {mod.number}
                       </span>
@@ -373,7 +384,7 @@ export default function MentoriaPage() {
                         {mod.subtitle}
                       </p>
 
-                      <div className="p-4 rounded-xl bg-[#0a0704] border border-[#c77a16]/20 flex gap-3 items-start">
+                      <div className="p-4 rounded-xl bg-[#0a0704] border border-[#c77a16]/15 flex gap-3 items-start">
                         <FaQuoteLeft className="text-[#c77a16] text-base shrink-0 mt-0.5" />
                         <p className="text-[#e2a836] text-sm font-serif italic leading-relaxed">
                           &quot;{mod.quote}&quot;
@@ -395,7 +406,6 @@ export default function MentoriaPage() {
             })}
           </div>
 
-          {/* CTA Below Modules */}
           <a 
             href={whatsappLink}
             target="_blank"
@@ -411,7 +421,7 @@ export default function MentoriaPage() {
 
 
       {/* ================================================================
-          SOBRE O MENTOR — Full-Width Split Section
+          SOBRE O MENTOR — Split Section
          ================================================================ */}
       <section className="relative w-full py-20 sm:py-28 bg-gradient-to-b from-[#060606] via-[#0e0a06] to-[#060606] overflow-hidden">
         
@@ -423,30 +433,18 @@ export default function MentoriaPage() {
             
             {/* Photo */}
             <div className="w-full lg:w-[45%] shrink-0">
-              <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden border border-[#c77a16]/30 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+              <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
                 <Image 
                   src="/WhatsApp Image 2026-06-25 at 19.12.41 (24).jpeg" 
                   alt="Edriano Bittencourt" 
                   fill 
                   className="object-cover object-top brightness-105" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/80 via-transparent to-transparent"></div>
-                
-                {/* Badge overlay */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-black/60 backdrop-blur-md border border-[#c77a16]/30 flex items-center justify-between">
-                  <div>
-                    <p className="text-[10px] text-[#e2a836] font-black uppercase tracking-widest">MENTOR PRINCIPAL</p>
-                    <p className="text-lg font-bold text-white">Edriano Bittencourt</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-2xl font-black text-[#e2a836] block leading-none">+40</span>
-                    <span className="text-[9px] text-neutral-400 font-bold uppercase tracking-wider">Anos</span>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/60 via-transparent to-transparent"></div>
               </div>
             </div>
 
-            {/* Bio Text */}
+            {/* Bio */}
             <div className="w-full lg:w-[55%] flex flex-col gap-6">
               
               <div>
@@ -458,18 +456,18 @@ export default function MentoriaPage() {
                 </h2>
               </div>
 
-              <div className="flex gap-4">
-                <div className="px-4 py-3 rounded-xl bg-[#c77a16]/10 border border-[#c77a16]/30 text-center">
-                  <span className="text-xl font-black text-[#e2a836] block">40+</span>
-                  <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-bold">Carpintaria</span>
+              <div className="flex gap-8">
+                <div>
+                  <span className="text-3xl font-black text-[#e2a836] block leading-none">40+</span>
+                  <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-bold mt-1 block">Carpintaria</span>
                 </div>
-                <div className="px-4 py-3 rounded-xl bg-[#c77a16]/10 border border-[#c77a16]/30 text-center">
-                  <span className="text-xl font-black text-[#e2a836] block">25+</span>
-                  <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-bold">Marcenaria</span>
+                <div>
+                  <span className="text-3xl font-black text-[#e2a836] block leading-none">25+</span>
+                  <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-bold mt-1 block">Marcenaria</span>
                 </div>
-                <div className="px-4 py-3 rounded-xl bg-[#c77a16]/10 border border-[#c77a16]/30 text-center">
-                  <span className="text-xl font-black text-[#e2a836] block">100+</span>
-                  <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-bold">Mentorados</span>
+                <div>
+                  <span className="text-3xl font-black text-[#e2a836] block leading-none">100+</span>
+                  <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-bold mt-1 block">Mentorados</span>
                 </div>
               </div>
 
@@ -485,8 +483,7 @@ export default function MentoriaPage() {
                 </p>
               </div>
 
-              {/* Quote */}
-              <div className="p-5 rounded-2xl bg-[#0a0704] border border-[#c77a16]/30 flex gap-3 items-start">
+              <div className="p-5 rounded-2xl bg-[#0a0704] border border-[#c77a16]/20 flex gap-3 items-start">
                 <FaQuoteLeft className="text-[#c77a16] text-xl shrink-0 mt-1" />
                 <p className="text-white font-serif italic text-base sm:text-lg leading-relaxed">
                   O maior penhor que você pode deixar a um filho é o legado.
@@ -501,27 +498,25 @@ export default function MentoriaPage() {
 
 
       {/* ================================================================
-          FECHAMENTO — CTA Final com Escassez
+          FECHAMENTO — CTA Final
          ================================================================ */}
       <section className="relative w-full py-24 sm:py-32 overflow-hidden">
         
-        {/* Background Image */}
         <Image
           src="/WhatsApp Image 2026-06-25 at 19.12.41 (3).jpeg"
           alt="Background"
           fill
-          className="object-cover object-top brightness-[0.2]"
+          className="object-cover object-top brightness-[0.15]"
         />
-        <div className="absolute inset-0 bg-[#060606]/70"></div>
+        <div className="absolute inset-0 bg-[#060606]/60"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-transparent to-[#060606]"></div>
 
         <div className="relative z-10 max-w-[700px] mx-auto px-6 sm:px-10 text-center flex flex-col items-center gap-8">
 
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-black/50 backdrop-blur-md border border-[#c77a16]/50 shadow-[0_0_30px_rgba(199,122,22,0.2)]">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse shadow-[0_0_10px_#25D366]"></span>
-            <span className="text-xs font-black tracking-[0.2em] uppercase text-[#e2a836]">GRUPO VIP ABERTO AGORA</span>
-          </div>
+          {/* Clean label, no pill */}
+          <span className="text-xs font-black tracking-[0.3em] uppercase text-[#e2a836]">
+            GRUPO VIP ABERTO AGORA
+          </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight">
             DÊ O PRIMEIRO<br/>
@@ -545,10 +540,9 @@ export default function MentoriaPage() {
             GARANTIR MINHA VAGA
           </a>
 
-          <div className="flex items-center gap-2 text-neutral-500 text-xs">
-            <FaShieldAlt className="text-[#e2a836]" /> 
-            <span>Entrada imediata • Sem custo para entrar no grupo</span>
-          </div>
+          <span className="text-[11px] text-neutral-500 tracking-wider">
+            Entrada imediata · Sem custo para entrar no grupo
+          </span>
 
         </div>
       </section>
