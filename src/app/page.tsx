@@ -183,37 +183,31 @@ export default function MentoriaPage() {
           <div className="w-full lg:w-[45%] flex justify-center lg:justify-end">
             <div className="relative w-full max-w-[440px] aspect-[3/4]" style={{ perspective: "1200px" }}>
 
-              {/* ===== BACK LAYER — Blurred 3D elements behind Edriano ===== */}
+              {/* ===== BACK LAYER — Real 3D tools behind Edriano (slightly blurred) ===== */}
               
-              {/* Large tilted golden rectangle (back) */}
+              {/* Wood Plank — back left, tilted */}
               <div 
-                className="absolute -left-12 top-[15%] w-[120px] h-[160px] rounded-2xl border border-[#c77a16]/30 bg-gradient-to-br from-[#c77a16]/15 to-[#e2a836]/5 backdrop-blur-sm animate-float-slow pointer-events-none"
-                style={{ transform: "rotateY(25deg) rotateX(-10deg) rotateZ(-8deg)", filter: "blur(3px)", zIndex: 1 }}
-              ></div>
+                className="absolute -left-16 top-[12%] w-[160px] h-[160px] animate-float-slow pointer-events-none"
+                style={{ transform: "rotateZ(-15deg) rotateY(20deg)", filter: "blur(3px)", zIndex: 1 }}
+              >
+                <Image src="/wood_plank_3d.jpg" alt="" fill className="object-contain" />
+              </div>
 
-              {/* Amber glowing orb (back left) */}
+              {/* Hammer — back right, angled */}
               <div 
-                className="absolute -left-6 bottom-[25%] w-[70px] h-[70px] rounded-full bg-[#c77a16]/20 shadow-[0_0_40px_rgba(199,122,22,0.3)] animate-float-medium pointer-events-none"
-                style={{ filter: "blur(4px)", zIndex: 1 }}
-              ></div>
+                className="absolute -right-14 top-[5%] w-[150px] h-[150px] animate-float-reverse pointer-events-none"
+                style={{ transform: "rotateZ(10deg)", filter: "blur(2px)", zIndex: 1 }}
+              >
+                <Image src="/hammer_3d.jpg" alt="" fill className="object-contain" />
+              </div>
 
-              {/* Tall thin golden bar (back right) */}
+              {/* Chisel — back bottom-left */}
               <div 
-                className="absolute -right-8 top-[10%] w-[40px] h-[200px] rounded-xl bg-gradient-to-b from-[#e2a836]/10 to-[#c77a16]/20 border border-[#c77a16]/20 animate-float-reverse pointer-events-none"
-                style={{ transform: "rotateY(-20deg) rotateZ(12deg)", filter: "blur(2px)", zIndex: 1 }}
-              ></div>
-
-              {/* Small diamond shape (back) */}
-              <div 
-                className="absolute right-[15%] top-[5%] w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-[#e2a836]/15 to-transparent border border-[#c77a16]/25 animate-float-slow pointer-events-none"
-                style={{ transform: "rotate(45deg) rotateX(15deg)", filter: "blur(2px)", zIndex: 1 }}
-              ></div>
-
-              {/* Wide panel (back bottom) */}
-              <div 
-                className="absolute -left-4 bottom-[5%] w-[180px] h-[60px] rounded-xl bg-gradient-to-r from-[#c77a16]/10 to-[#e2a836]/5 border border-[#c77a16]/15 animate-float-medium pointer-events-none"
-                style={{ transform: "rotateX(20deg) rotateY(10deg)", filter: "blur(3px)", zIndex: 1 }}
-              ></div>
+                className="absolute -left-10 bottom-[8%] w-[130px] h-[130px] animate-float-medium pointer-events-none"
+                style={{ transform: "rotateZ(25deg)", filter: "blur(2px)", zIndex: 1 }}
+              >
+                <Image src="/chisel_3d.jpg" alt="" fill className="object-contain" />
+              </div>
 
 
               {/* ===== MIDDLE LAYER — Edriano Photo ===== */}
@@ -225,7 +219,7 @@ export default function MentoriaPage() {
                   priority
                   className="object-cover object-top brightness-105"
                 />
-                {/* Edge vignette to blend into dark bg (simulates cutout) */}
+                {/* Edge vignette to blend into dark bg */}
                 <div className="absolute inset-0 shadow-[inset_0_0_80px_30px_#060606]"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-transparent to-transparent opacity-80"></div>
                 <div className="absolute inset-0 bg-gradient-to-l from-[#060606]/50 via-transparent to-[#060606]/50"></div>
@@ -239,36 +233,36 @@ export default function MentoriaPage() {
               </div>
 
 
-              {/* ===== FRONT LAYER — Bokeh 3D elements in front of Edriano ===== */}
+              {/* ===== FRONT LAYER — 3D tools in front with heavy bokeh ===== */}
 
-              {/* Large blurred golden panel (front, top-right) — strong bokeh */}
+              {/* Wood Plank piece — front right, strong bokeh */}
               <div 
-                className="absolute -right-10 top-[8%] w-[100px] h-[140px] rounded-2xl bg-gradient-to-br from-[#e2a836]/25 to-[#c77a16]/10 border border-[#e2a836]/30 animate-float-reverse pointer-events-none"
-                style={{ transform: "rotateY(-30deg) rotateX(10deg)", filter: "blur(8px)", zIndex: 10 }}
-              ></div>
+                className="absolute -right-12 bottom-[28%] w-[140px] h-[140px] animate-float-medium pointer-events-none"
+                style={{ transform: "rotateZ(30deg) scaleX(-1)", filter: "blur(8px)", zIndex: 10 }}
+              >
+                <Image src="/wood_plank_3d.jpg" alt="" fill className="object-contain" />
+              </div>
 
-              {/* Small bright gold circle (front, left) — heavy bokeh */}
+              {/* Chisel — front top-left, bokeh */}
               <div 
-                className="absolute -left-8 top-[40%] w-[55px] h-[55px] rounded-full bg-[#e2a836]/30 shadow-[0_0_30px_rgba(226,168,54,0.4)] animate-float-medium pointer-events-none"
-                style={{ filter: "blur(10px)", zIndex: 10 }}
-              ></div>
+                className="absolute -left-8 top-[30%] w-[110px] h-[110px] animate-float-reverse pointer-events-none"
+                style={{ transform: "rotateZ(-40deg) scaleX(-1)", filter: "blur(10px)", zIndex: 10 }}
+              >
+                <Image src="/chisel_3d.jpg" alt="" fill className="object-contain" />
+              </div>
 
-              {/* Tiny sharp golden chip (front, bottom-right) — slight blur */}
+              {/* Hammer — front bottom-right, subtle bokeh */}
               <div 
-                className="absolute right-[5%] bottom-[20%] w-[35px] h-[35px] rounded-lg bg-gradient-to-br from-[#e2a836]/40 to-[#c77a16]/20 border border-[#e2a836]/40 animate-float-slow pointer-events-none"
-                style={{ transform: "rotate(30deg)", filter: "blur(5px)", zIndex: 10 }}
-              ></div>
+                className="absolute right-[-5%] top-[60%] w-[100px] h-[100px] animate-float-slow pointer-events-none"
+                style={{ transform: "rotateZ(-20deg)", filter: "blur(6px)", zIndex: 10 }}
+              >
+                <Image src="/hammer_3d.jpg" alt="" fill className="object-contain" />
+              </div>
 
-              {/* Medium frosted glass panel (front, top-left) */}
+              {/* Warm ambient glow — extreme bokeh (gives depth) */}
               <div 
-                className="absolute -left-6 top-[12%] w-[80px] h-[50px] rounded-xl bg-white/5 border border-white/10 animate-float-reverse pointer-events-none"
-                style={{ transform: "rotateY(15deg) rotateZ(-5deg)", filter: "blur(6px)", zIndex: 10 }}
-              ></div>
-
-              {/* Large warm glow (front center-right) — extreme bokeh */}
-              <div 
-                className="absolute right-[-20px] bottom-[35%] w-[90px] h-[90px] rounded-full bg-[#c77a16]/15 animate-float-slow pointer-events-none"
-                style={{ filter: "blur(15px)", zIndex: 10 }}
+                className="absolute right-[-20px] bottom-[40%] w-[90px] h-[90px] rounded-full bg-[#c77a16]/15 animate-float-slow pointer-events-none"
+                style={{ filter: "blur(18px)", zIndex: 10 }}
               ></div>
 
             </div>
