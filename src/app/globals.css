@@ -47,3 +47,27 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* 3D Floating Animations for Hero */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(var(--float-rotate, 0deg)); }
+  50% { transform: translateY(-18px) rotate(var(--float-rotate, 0deg)); }
+}
+@keyframes floatMedium {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(-15px); }
+  50% { transform: translateY(5px); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+.animate-float-medium {
+  animation: floatMedium 5s ease-in-out infinite;
+}
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}

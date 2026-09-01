@@ -120,7 +120,7 @@ export default function MentoriaPage() {
     <main className="min-h-screen text-white bg-[#060606] font-sans overflow-x-hidden">
 
       {/* ================================================================
-          HERO — Split Layout (Text Left + Photo Right)
+          HERO — Split Layout with 3D Floating Elements
          ================================================================ */}
       <section className="relative w-full min-h-screen flex items-center overflow-hidden">
         
@@ -134,12 +134,10 @@ export default function MentoriaPage() {
           {/* LEFT — Text Content */}
           <div className="w-full lg:w-[55%] flex flex-col gap-7">
 
-            {/* Top Label — Clean, no pill */}
             <span className="text-[11px] text-[#e2a836] font-black tracking-[0.3em] uppercase">
               MENTORIA EXCLUSIVA — VAGAS LIMITADAS
             </span>
 
-            {/* Giant Headline */}
             <h1 className="text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-black uppercase leading-[0.95] tracking-tighter">
               <span className="text-white/90">DO OPERACIONAL</span><br/>
               <span className="text-white/90">AO </span>
@@ -148,12 +146,10 @@ export default function MentoriaPage() {
               </span>
             </h1>
 
-            {/* Subheadline */}
             <p className="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-[520px]">
               O método prático para marceneiros que desejam <strong className="text-white">multiplicar o lucro</strong>, atrair clientes de alto padrão e conquistar a liberdade que sempre sonharam.
             </p>
 
-            {/* CTA Button */}
             <a 
               href={whatsappLink}
               target="_blank"
@@ -165,7 +161,6 @@ export default function MentoriaPage() {
               <FaArrowRight className="text-sm" />
             </a>
 
-            {/* Authority Numbers — Clean, no pill */}
             <div className="flex items-center gap-6 mt-2">
               <div>
                 <span className="text-3xl font-black text-[#e2a836] block leading-none">+40</span>
@@ -184,24 +179,98 @@ export default function MentoriaPage() {
             </div>
           </div>
 
-          {/* RIGHT — Edriano Photo */}
+          {/* RIGHT — Composited 3D Scene with Photo */}
           <div className="w-full lg:w-[45%] flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[420px] aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
-              <Image
-                src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg"
-                alt="Edriano Bittencourt - Mentor"
-                fill
-                priority
-                className="object-cover object-top brightness-105"
-              />
-              {/* Bottom gradient fade only */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/70 via-transparent to-transparent"></div>
+            <div className="relative w-full max-w-[440px] aspect-[3/4]" style={{ perspective: "1200px" }}>
 
-              {/* Name label at bottom */}
-              <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.2em]">MENTOR PRINCIPAL</p>
-                <p className="text-xl font-bold text-white">Edriano Bittencourt</p>
+              {/* ===== BACK LAYER — Blurred 3D elements behind Edriano ===== */}
+              
+              {/* Large tilted golden rectangle (back) */}
+              <div 
+                className="absolute -left-12 top-[15%] w-[120px] h-[160px] rounded-2xl border border-[#c77a16]/30 bg-gradient-to-br from-[#c77a16]/15 to-[#e2a836]/5 backdrop-blur-sm animate-float-slow pointer-events-none"
+                style={{ transform: "rotateY(25deg) rotateX(-10deg) rotateZ(-8deg)", filter: "blur(3px)", zIndex: 1 }}
+              ></div>
+
+              {/* Amber glowing orb (back left) */}
+              <div 
+                className="absolute -left-6 bottom-[25%] w-[70px] h-[70px] rounded-full bg-[#c77a16]/20 shadow-[0_0_40px_rgba(199,122,22,0.3)] animate-float-medium pointer-events-none"
+                style={{ filter: "blur(4px)", zIndex: 1 }}
+              ></div>
+
+              {/* Tall thin golden bar (back right) */}
+              <div 
+                className="absolute -right-8 top-[10%] w-[40px] h-[200px] rounded-xl bg-gradient-to-b from-[#e2a836]/10 to-[#c77a16]/20 border border-[#c77a16]/20 animate-float-reverse pointer-events-none"
+                style={{ transform: "rotateY(-20deg) rotateZ(12deg)", filter: "blur(2px)", zIndex: 1 }}
+              ></div>
+
+              {/* Small diamond shape (back) */}
+              <div 
+                className="absolute right-[15%] top-[5%] w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-[#e2a836]/15 to-transparent border border-[#c77a16]/25 animate-float-slow pointer-events-none"
+                style={{ transform: "rotate(45deg) rotateX(15deg)", filter: "blur(2px)", zIndex: 1 }}
+              ></div>
+
+              {/* Wide panel (back bottom) */}
+              <div 
+                className="absolute -left-4 bottom-[5%] w-[180px] h-[60px] rounded-xl bg-gradient-to-r from-[#c77a16]/10 to-[#e2a836]/5 border border-[#c77a16]/15 animate-float-medium pointer-events-none"
+                style={{ transform: "rotateX(20deg) rotateY(10deg)", filter: "blur(3px)", zIndex: 1 }}
+              ></div>
+
+
+              {/* ===== MIDDLE LAYER — Edriano Photo ===== */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)]" style={{ zIndex: 5 }}>
+                <Image
+                  src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg"
+                  alt="Edriano Bittencourt - Mentor"
+                  fill
+                  priority
+                  className="object-cover object-top brightness-105"
+                />
+                {/* Edge vignette to blend into dark bg (simulates cutout) */}
+                <div className="absolute inset-0 shadow-[inset_0_0_80px_30px_#060606]"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-transparent to-transparent opacity-80"></div>
+                <div className="absolute inset-0 bg-gradient-to-l from-[#060606]/50 via-transparent to-[#060606]/50"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#060606]/40 via-transparent to-transparent"></div>
+                
+                {/* Name label */}
+                <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent" style={{ zIndex: 6 }}>
+                  <p className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.2em]">MENTOR PRINCIPAL</p>
+                  <p className="text-xl font-bold text-white">Edriano Bittencourt</p>
+                </div>
               </div>
+
+
+              {/* ===== FRONT LAYER — Bokeh 3D elements in front of Edriano ===== */}
+
+              {/* Large blurred golden panel (front, top-right) — strong bokeh */}
+              <div 
+                className="absolute -right-10 top-[8%] w-[100px] h-[140px] rounded-2xl bg-gradient-to-br from-[#e2a836]/25 to-[#c77a16]/10 border border-[#e2a836]/30 animate-float-reverse pointer-events-none"
+                style={{ transform: "rotateY(-30deg) rotateX(10deg)", filter: "blur(8px)", zIndex: 10 }}
+              ></div>
+
+              {/* Small bright gold circle (front, left) — heavy bokeh */}
+              <div 
+                className="absolute -left-8 top-[40%] w-[55px] h-[55px] rounded-full bg-[#e2a836]/30 shadow-[0_0_30px_rgba(226,168,54,0.4)] animate-float-medium pointer-events-none"
+                style={{ filter: "blur(10px)", zIndex: 10 }}
+              ></div>
+
+              {/* Tiny sharp golden chip (front, bottom-right) — slight blur */}
+              <div 
+                className="absolute right-[5%] bottom-[20%] w-[35px] h-[35px] rounded-lg bg-gradient-to-br from-[#e2a836]/40 to-[#c77a16]/20 border border-[#e2a836]/40 animate-float-slow pointer-events-none"
+                style={{ transform: "rotate(30deg)", filter: "blur(5px)", zIndex: 10 }}
+              ></div>
+
+              {/* Medium frosted glass panel (front, top-left) */}
+              <div 
+                className="absolute -left-6 top-[12%] w-[80px] h-[50px] rounded-xl bg-white/5 border border-white/10 animate-float-reverse pointer-events-none"
+                style={{ transform: "rotateY(15deg) rotateZ(-5deg)", filter: "blur(6px)", zIndex: 10 }}
+              ></div>
+
+              {/* Large warm glow (front center-right) — extreme bokeh */}
+              <div 
+                className="absolute right-[-20px] bottom-[35%] w-[90px] h-[90px] rounded-full bg-[#c77a16]/15 animate-float-slow pointer-events-none"
+                style={{ filter: "blur(15px)", zIndex: 10 }}
+              ></div>
+
             </div>
           </div>
 
