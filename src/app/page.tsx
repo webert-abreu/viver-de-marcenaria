@@ -1,431 +1,521 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
-import { FaWhatsapp, FaChevronDown, FaCheckCircle, FaQuoteLeft } from "react-icons/fa";
+import { 
+  FaWhatsapp, 
+  FaChevronDown, 
+  FaCheckCircle, 
+  FaQuoteLeft, 
+  FaShieldAlt, 
+  FaClock, 
+  FaUsers, 
+  FaExclamationTriangle,
+  FaArrowRight,
+  FaStar,
+  FaGem,
+  FaLightbulb,
+  FaAward
+} from "react-icons/fa";
 
 const modules = [
   {
-    aula: "AULA 1",
+    number: "01",
+    aula: "MÓDULO 1",
     title: "Metanóia: MUDANÇA DE MENTE",
-    subtitle: "O Primeiro Passo para Viver da Marcenaria",
+    subtitle: "O Primeiro Passo: A Transição de Marceneiro para Empresário",
+    quote: "“O maior equipamento da sua marcenaria não é a CNC, a esquadrejadeira ou qualquer máquina. É a sua mente. Quando ela evolui, o faturamento acompanha.”",
     content: [
-      "Mudança de mentalidade: a transição de marceneiro para empresário.",
-      "Identificação e quebra de crenças limitantes.",
-      "Propósito, visão e metas: saber onde você quer chegar.",
-      "Assumir 100% da responsabilidade pelos resultados da empresa.",
-      "Hábitos e disciplina dos empresários de alta performance.",
-      "Tomada de decisão baseada em números, não em emoções.",
-      "Como vencer o medo de vender, investir, contratar e crescer."
-    ],
-    opening: "“O maior equipamento da sua marcenaria não é a CNC, a esquadrejadeira ou qualquer outra máquina. É a sua mente. Quando ela evolui, a empresa evolui junto.”",
-    impact: "“A sua marcenaria nunca crescerá além da mentalidade de quem a lidera. Primeiro muda a mente, depois muda a empresa.”",
-    closing: "“Toda grande marcenaria nasceu quando alguém decidiu mudar primeiro a própria mentalidade. O sucesso começa na mente, cresce nas atitudes e aparece nos resultados.”"
+      "Quebra definitiva de crenças limitantes sobre precificação e dinheiro.",
+      "Como assumir 100% da postura de dono e líder de alto rendimento.",
+      "Planejamento de visão, metas e faturamento previsível para os próximos 12 meses.",
+      "Tomada de decisões cirúrgicas baseadas em números reais, não em intuição.",
+      "Como eliminar o medo de cobrar caro, investir em estrutura e contratar equipe."
+    ]
   },
   {
-    aula: "AULA 2",
-    title: "POSICIONAMENTO E MARCA",
-    subtitle: "Seja Lembrado Antes de Ser Procurado",
+    number: "02",
+    aula: "MÓDULO 2",
+    title: "PRECIFICAÇÃO & LUCRO REAL",
+    subtitle: "Chega de trabalhar de graça e ver o dinheiro sumir no fim do mês",
+    quote: "“Faturamento é ego, lucro é sanidade e caixa é rei. Aprenda a precificar para lucrar alto em cada metro de MDF cortado.”",
     content: [
-      "Construindo uma marca forte e confiável.",
-      "Definindo o cliente ideal.",
-      "Como vender valor em vez de preço.",
-      "Criando autoridade na sua região.",
-      "Marketing pessoal do empresário.",
-      "Diferenciais que fazem sua marcenaria se destacar.",
-      "Como transformar clientes em promotores da sua marca.",
-      "Construindo uma empresa que será lembrada por gerações."
-    ],
-    opening: "“Quem compete por preço luta pela sobrevivência. Quem constrói uma marca conquista o mercado.”",
-    impact: "“Sua marca deve chegar antes de você. Quando o cliente confiar no seu nome, o preço deixará de ser o principal fator da decisão.”",
-    closing: "“A marca abre portas antes mesmo da primeira conversa.”"
+      "A fórmula exata de custo fixo, custo variável e margem líquida real.",
+      "Como incluir horas de projeto, imprevistos e montagem sem tomar prejuízo.",
+      "Diferença entre margem de markup e margem de contribuição na marcenaria.",
+      "Planilha prática de orçamento automatizada para não errar nunca mais.",
+      "Técnica para apresentar o preço com firmeza e sem dar descontos desnecessários."
+    ]
   },
   {
-    aula: "AULA 3",
-    title: "MARKETING DIGITAL",
-    subtitle: "Clientes Todos os Dias",
+    number: "03",
+    aula: "MÓDULO 3",
+    title: "VENDAS DE ALTO PADRÃO & ATRAÇÃO",
+    subtitle: "Atraia clientes exigentes que valorizam e pagam à vista",
+    quote: "“Quem compete por preço morre por preço. Posicione-se como o melhor marceneiro da sua região e seja disputado pelos clientes certos.”",
     content: [
-      "Como atrair clientes de forma consistente.",
-      "Instagram para gerar autoridade.",
-      "Reels que despertam atenção.",
-      "Conteúdo que gera confiança.",
-      "WhatsApp como ferramenta de vendas.",
-      "Google e presença local.",
-      "Como produzir vídeos simples e profissionais.",
-      "Criando um sistema previsível de geração de clientes."
-    ],
-    opening: "“Se o mercado não conhece você, ele nunca terá a oportunidade de comprar de você.”",
-    impact: "“Quem aparece com estratégia é lembrado. Quem é lembrado vende.”",
-    closing: "“Quem aparece com estratégia vende com frequência.”"
+      "Posicionamento magnético no Instagram e Google para clientes Classe A/B.",
+      "Script de atendimento e fechamento no primeiro contato do WhatsApp.",
+      "Como criar propostas comerciais irresistíveis em 3D que fecham sozinhas.",
+      "Parcerias estratégicas lucrativas com Arquitetos e Designers de Interiores.",
+      "Estratégia de indicação premiada para ter fila de espera o ano todo."
+    ]
   },
   {
-    aula: "AULA 4",
-    title: "VENDAS DE ALTO IMPACTO",
-    subtitle: "Vender Sem Dar Desconto",
+    number: "04",
+    aula: "MÓDULO 4",
+    title: "GESTÃO, PROCESSOS & EQUIPE",
+    subtitle: "Como sair da operação pesada sem deixar a qualidade cair",
+    quote: "“Se a marcenaria para quando você viaja, você não tem uma empresa, tem um emprego com alto risco.”",
     content: [
-      "Entendendo o perfil do cliente.",
-      "Atendimento consultivo.",
-      "Como apresentar valor.",
-      "Orçamentos que convencem.",
-      "Técnicas de negociação.",
-      "Como quebrar objeções.",
-      "Fechamento de vendas.",
-      "Pós-venda que gera indicações."
-    ],
-    opening: "“O cliente não compra móveis. Ele compra confiança, segurança e a realização de um sonho.”",
-    impact: "“Quem vende por preço fecha uma venda. Quem vende valor conquista um cliente para a vida toda.”",
-    closing: "“Grandes vendedores não convencem. Eles ajudam o cliente a tomar a melhor decisão.”"
+      "Mapeamento de fluxo de produção: do corte à montagem sem retrabalho.",
+      "Checklists operacionais à prova de erros para auxiliares e marceneiros.",
+      "Como contratar, treinar e reter bons marceneiros com comissões justas.",
+      "Gestão de prazos rigorosa para nunca mais atrasar uma entrega de cliente.",
+      "Como estruturar a sua marcenaria para funcionar no piloto automático."
+    ]
   },
   {
-    aula: "AULA 5",
-    title: "PRECIFICAÇÃO",
-    subtitle: "Lucro Não É Sorte",
+    number: "05",
+    aula: "MÓDULO 5",
+    title: "CONSTRUÇÃO DE LEGADO",
+    subtitle: "Multiplicação de patrimônio e perpetuação do seu nome",
+    quote: "“O maior penhor que você pode deixar a um filho é o legado. Construa algo que seus netos terão orgulho de continuar.”",
     content: [
-      "Como calcular o preço corretamente.",
-      "Custos diretos e indiretos.",
-      "Margem de lucro.",
-      "Custos ocultos.",
-      "Formação do preço final.",
-      "Como vender sem entrar em guerra de preços. - Será em Live",
-      "Indicadores financeiros.",
-      "Precificação para crescimento sustentável."
-    ],
-    opening: "“Quem não conhece seus números trabalha muito e lucra pouco.”",
-    impact: "“Preço paga contas. Lucro constrói patrimônio.”",
-    closing: "“Faturamento impressiona. Lucro transforma.”"
-  },
-  {
-    aula: "AULA 6",
-    title: "GESTÃO FINANCEIRA",
-    subtitle: "O Dinheiro Precisa Trabalhar por Você",
-    content: [
-      "Fluxo de caixa.",
-      "Capital de giro.",
-      "Controle financeiro.",
-      "Planejamento.",
-      "Indicadores.",
-      "Redução de desperdícios.",
-      "Reserva financeira.",
-      "Gestão para crescimento."
-    ],
-    opening: "“Empresas quebram por falta de gestão, não por falta de trabalho.”",
-    impact: "“Quem domina as finanças da empresa deixa de apagar incêndios e começa a construir o futuro.”",
-    closing: "“Quem controla o dinheiro controla o futuro da empresa.”"
-  },
-  {
-    aula: "AULA 7",
-    title: "PRODUÇÃO INTELIGENTE",
-    subtitle: "Produzir Mais, Desperdiçar Menos",
-    content: [
-      "Planejamento da produção.",
-      "Padronização.",
-      "Organização da oficina.",
-      "Controle de qualidade.",
-      "Gestão do tempo.",
-      "Redução de desperdícios.",
-      "Como ter pontualidade.",
-      "Aumento da produtividade."
-    ],
-    opening: "“Organização gera velocidade. Velocidade gera lucro.”",
-    impact: "“Uma produção organizada reduz custos, aumenta a qualidade e fortalece a confiança do cliente.”",
-    closing: "“Uma produção organizada entrega qualidade, reduz custos e aumenta os resultados.”"
-  },
-  {
-    aula: "AULA 8",
-    title: "LIDERANÇA E EQUIPE",
-    subtitle: "",
-    content: [
-      "Como contratar as pessoas certas.",
-      "Desenvolvendo líderes.",
-      "Comunicação eficiente.",
-      "Delegação.",
-      "Construindo uma equipe campeã."
-    ],
-    opening: "“Empresas crescem quando as pessoas crescem.”",
-    impact: "“Nenhuma máquina substitui uma equipe comprometida e bem liderada.”",
-    closing: "“Nenhuma marcenaria se torna grande sozinha.”"
-  },
-  {
-    aula: "AULA 9",
-    title: "TECNOLOGIA",
-    subtitle: "A Marcenaria do Futuro",
-    content: [
-      "Softwares de projeto.",
-      "CNC e automação.",
-      "Inteligência Artificial.",
-      "Máquinas e equipamentos.",
-      "Organização digital.",
-      "Tendências do setor.",
-      "Integração dos processos.",
-      "Tecnologia como vantagem competitiva."
-    ],
-    opening: "“A tecnologia não substitui o marceneiro. Ela potencializa quem está preparado.”",
-    impact: "“Quem investe em tecnologia ganha tempo, produtividade e competitividade.”",
-    closing: "“Quem aprende primeiro lidera o mercado.”"
-  },
-  {
-    aula: "AULA 10",
-    title: "ESCALA E CRESCIMENTO",
-    subtitle: "",
-    content: [
-      "Como sair da operação.",
-      "Estrutura organizacional.",
-      "Planejamento estratégico.",
-      "Indicadores de crescimento.",
-      "Expansão da empresa.",
-      "Novas fontes de receita.",
-      "Criando um legado para as próximas gerações."
-    ],
-    opening: "“O verdadeiro sucesso é construir uma empresa que cresce mesmo quando você não está presente.”",
-    impact: "“Seu objetivo não é trabalhar mais. É construir uma empresa capaz de crescer sem depender exclusivamente de você.”",
-    closing: "“O objetivo não é apenas fabricar móveis. É construir uma empresa sólida, lucrativa e um legado que permaneça por gerações.”"
-  },
-  {
-    aula: "AULA 11",
-    title: "EXCELÊNCIA NA MONTAGEM",
-    subtitle: "",
-    content: [
-      "Planejamento da montagem antes de sair da fábrica.",
-      "Organização de ferramentas e logística.",
-      "Técnicas para uma montagem rápida, limpa e segura.",
-      "Ajustes e acabamento de alto padrão.",
-      "Comunicação com o cliente durante a instalação.",
-      "Checklist de entrega e conferência final."
-    ],
-    opening: "“O projeto encanta no papel. A montagem conquista o cliente.”",
-    impact: "“A última impressão é a que permanece. Uma montagem impecável transforma clientes em vendedores da sua marca.”",
-    closing: "“Uma montagem de excelência não encerra uma venda. Ela inicia a próxima.”"
+      "Separação definitiva das contas pessoais da conta da marcenaria.",
+      "Reserva de emergência empresarial e reinvestimento inteligente.",
+      "Construção de marca própria sólida e reconhecida no mercado.",
+      "Sucessão familiar e profissionalização da empresa.",
+      "Mentoria contínua e networking direto com os maiores marceneiros do país."
+    ]
   }
 ];
 
-export default function MentoriaLanding() {
+const painPoints = [
+  {
+    id: 1,
+    title: "Escravo da própria oficina",
+    desc: "Trabalha 12 a 16 horas por dia cortando e montando, mas o dinheiro nunca sobra no final do mês."
+  },
+  {
+    id: 2,
+    title: "Refém do cliente 'chorão'",
+    desc: "Clientes que só pedem desconto, desvalorizam sua mão de obra e comparam seu trabalho com móveis de magazine."
+  },
+  {
+    id: 3,
+    title: "Insegurança na Precificação",
+    desc: "Medo constante de cobrar caro e perder a venda, ou cobrar barato e pagar para trabalhar."
+  },
+  {
+    id: 4,
+    title: "Falta de tempo e liberdade",
+    desc: "Não consegue tirar férias com a família porque se você não estiver na oficina, a produção para totalmente."
+  }
+];
+
+const targetAudiences = [
+  {
+    step: "01",
+    title: "Para quem quer sair do operacional",
+    desc: "Você ama marcenaria, mas está exausto do trabalho pesado diário e quer se tornar um verdadeiro empresário e líder.",
+    image: "/WhatsApp Image 2026-06-25 at 19.12.41 (26).jpeg"
+  },
+  {
+    step: "02",
+    title: "Para quem quer dobrar o lucro",
+    desc: "Já tem uma estrutura montada, entrega móveis de qualidade, mas sente que o faturamento estagnou e falta gestão profissional.",
+    image: "/WhatsApp Image 2026-06-25 at 19.12.41 (8).jpeg"
+  },
+  {
+    step: "03",
+    title: "Para quem busca construir um legado",
+    desc: "Profissionais que não querem ser apenas mais um marceneiro na cidade, mas sim construir uma marca respeitada e duradoura.",
+    image: "/WhatsApp Image 2026-06-25 at 19.12.41 (4).jpeg"
+  }
+];
+
+export default function MentoriaPage() {
   const [openModule, setOpenModule] = useState<number | null>(0);
 
-  const toggleModule = (index: number) => {
-    setOpenModule(openModule === index ? null : index);
-  };
-
-  const ctaLink = "https://pay.hotmart.com/S107087265E"; // Checkout Hotmart
+  const whatsappLink = "https://chat.whatsapp.com/C8CiQWBbNg9Cs9hrMGwDnV";
 
   return (
-    <main className="min-h-screen font-sans bg-[#0d0d0d] text-neutral-100 overflow-x-hidden selection:bg-[#c77a16] selection:text-white">
-      {/* Background Effect */}
-      <div className="fixed inset-0 z-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}></div>
-      <div className="fixed top-0 w-full h-[600px] bg-gradient-to-b from-[#c77a16]/10 via-[#0d0d0d]/80 to-[#0d0d0d] z-0 pointer-events-none"></div>
+    <main className="min-h-screen relative overflow-x-hidden font-sans text-neutral-100 bg-[#080808]">
+      
+      {/* Background Ambience & Lighting */}
+      <div className="fixed inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: "url('/wood_bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}></div>
+      <div className="fixed top-[-100px] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#c77a16]/20 via-[#e2a836]/5 to-transparent blur-[120px] pointer-events-none z-0"></div>
+      <div className="fixed bottom-0 right-[-100px] w-[500px] h-[500px] bg-[#c77a16]/10 blur-[150px] pointer-events-none z-0"></div>
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative z-10 w-full min-h-[90vh] flex flex-col items-center justify-center px-5 pt-20 pb-16 text-center">
-        <div className="max-w-[800px] flex flex-col items-center gap-6 animate-fade-in-up">
-          <span className="px-4 py-1.5 rounded-full border border-[#c77a16]/40 bg-[#c77a16]/10 text-[#e2a836] text-[10px] sm:text-xs font-black tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(199,122,22,0.2)]">
-            A Formação Definitiva
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white font-sans drop-shadow-2xl leading-[1.1]">
-            Mentoria <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c77a16] via-[#e2a836] to-[#c77a16]">Viver de Marcenaria</span>
+      {/* Main Container */}
+      <div className="relative z-10 max-w-[540px] mx-auto px-5 py-8 pb-16 flex flex-col gap-12">
+        
+        {/* =========================================================
+            1. HERO SECTION (High Authority & Dark Luxury)
+           ========================================================= */}
+        <section className="flex flex-col items-center text-center pt-2">
+          
+          {/* Exclusivity Tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1c130b] border border-[#c77a16]/40 shadow-[0_0_20px_rgba(199,122,22,0.2)] mb-6 animate-pulse">
+            <span className="w-2 h-2 rounded-full bg-[#e2a836] shadow-[0_0_8px_#e2a836]"></span>
+            <span className="text-[10px] font-black tracking-[0.25em] uppercase text-[#e2a836]">
+              MENTORIA EXCLUSIVA • VAGAS LIMITADAS
+            </span>
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="text-[32px] sm:text-[38px] font-black uppercase leading-[1.08] tracking-tight text-white mb-4">
+            DO OPERACIONAL <br/>
+            AO EMPRESARIAL: <br/>
+            <span className="bg-gradient-to-r from-[#e2a836] via-[#f7d58b] to-[#c77a16] bg-clip-text text-transparent drop-shadow-[0_4px_25px_rgba(226,168,54,0.3)]">
+              CONSTRUA O SEU IMPÉRIO
+            </span> <br/>
+            NA MARCENARIA
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#c77a16] to-transparent my-2 opacity-50"></div>
-          <p className="text-lg sm:text-xl text-neutral-300 font-medium leading-relaxed max-w-[650px] font-serif italic relative">
-            <FaQuoteLeft className="absolute -left-6 -top-4 text-3xl text-[#c77a16] opacity-20" />
-            &quot;O maior equipamento da sua marcenaria não é a CNC, a esquadrejadeira ou qualquer outra máquina. É a sua mente. Quando ela evolui, a empresa evolui junto.&quot;
+
+          {/* Subheadline */}
+          <p className="text-neutral-300 text-[13.5px] leading-relaxed max-w-[440px] mb-8 font-medium">
+            O método prático para marceneiros que desejam <strong className="text-white">multiplicar seu lucro</strong>, atrair clientes que pagam à vista e conquistar a liberdade que sempre sonharam.
           </p>
 
-          <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="mt-8 relative group w-full sm:w-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-xl blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-            <button className="relative w-full sm:w-auto px-8 py-5 bg-gradient-to-br from-[#1a110a] to-[#0a0a0a] border border-[#c77a16]/50 rounded-xl text-[#e2a836] font-black uppercase tracking-widest text-sm sm:text-base shadow-2xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all">
-              Quero Viver de Marcenaria
-            </button>
-          </a>
-        </div>
-      </section>
-
-      {/* --- MENTOR SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-20 bg-gradient-to-b from-[#111] to-[#0d0d0d] border-y border-white/5">
-        <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-12 items-center">
-          <div className="w-full md:w-1/2 relative rounded-3xl overflow-hidden border border-[#c77a16]/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] aspect-square md:aspect-[4/5] group">
-             <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent z-10"></div>
-             <Image src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" alt="Edriano Bittencourt" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-1000" />
-             <div className="absolute bottom-6 left-6 right-6 z-20">
-               <h3 className="text-3xl font-black text-white uppercase tracking-tight">Edriano Bittencourt</h3>
-               <p className="text-[#c77a16] font-bold text-sm tracking-widest uppercase mt-1">Mentor & Marceneiro</p>
-             </div>
-          </div>
-          <div className="w-full md:w-1/2 flex flex-col gap-6">
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white leading-tight">
-              Mais de <span className="text-[#c77a16]">40 anos</span> <br/> construindo um legado.
-            </h2>
-            <div className="flex flex-col gap-4 text-neutral-400 text-sm sm:text-base leading-relaxed">
-              <p>A marcenaria não foi uma profissão que escolhi. Foi um legado que recebi, uma missão que abracei e um propósito que decidi viver.</p>
-              <p>Meu pai foi meu primeiro mestre. Ensinou que o caráter vale mais do que qualquer ferramenta, que a palavra de um homem tem valor e que todo trabalho feito com excelência honra a Deus.</p>
-              <p>Minha missão hoje vai muito além da marcenaria. Quero formar profissionais melhores, empresários mais preparados e líderes mais humanos.</p>
-            </div>
+          {/* Hero Portrait with Golden Frame Glow */}
+          <div className="relative w-full max-w-[380px] h-[440px] rounded-[32px] overflow-hidden border border-[#c77a16]/40 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(199,122,22,0.2)] mb-8 group">
+            <Image 
+              src="/WhatsApp Image 2026-06-25 at 19.12.41 (2).jpeg" 
+              alt="Edriano Bittencourt - Mentor" 
+              fill 
+              priority
+              className="object-cover object-top brightness-105 group-hover:scale-105 transition-transform duration-1000" 
+            />
+            {/* Dark Dramatic Gradients */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/40 via-transparent to-transparent"></div>
             
-            <div className="p-6 mt-4 rounded-2xl bg-[#1a110a] border border-[#c77a16]/30 relative overflow-hidden">
-              <div className="absolute -right-4 -top-4 text-6xl text-[#c77a16] opacity-10 font-serif">&quot;</div>
-              <p className="font-serif italic text-white/90 text-lg relative z-10 leading-relaxed">
-                Seu objetivo não é trabalhar mais. É construir uma empresa capaz de crescer sem depender exclusivamente de você.
-              </p>
+            {/* Floating Authority Badge */}
+            <div className="absolute bottom-5 inset-x-5 p-4 rounded-2xl bg-[#120c07]/85 backdrop-blur-md border border-[#c77a16]/30 flex items-center justify-between shadow-xl">
+              <div>
+                <p className="text-[10px] text-[#e2a836] font-black uppercase tracking-widest">MENTOR PRINCIPAL</p>
+                <p className="text-base font-bold text-white leading-tight">Edriano Bittencourt</p>
+              </div>
+              <div className="px-3 py-1.5 rounded-xl bg-[#c77a16]/20 border border-[#c77a16]/40 text-right">
+                <span className="text-[11px] font-black text-[#e2a836] block leading-none">+40 ANOS</span>
+                <span className="text-[8px] text-neutral-400 font-bold uppercase tracking-wider">DE OFÍCIO</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* --- MODULES SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-24">
-        <div className="max-w-[800px] mx-auto flex flex-col gap-12">
+          {/* Primary Glowing CTA Button */}
+          <a 
+            href={whatsappLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-full max-w-[400px] py-4 px-6 rounded-2xl bg-gradient-to-r from-[#c77a16] via-[#e2a836] to-[#c77a16] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-[#080808] font-black text-[13px] uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_0_35px_rgba(226,168,54,0.4)] active:scale-[0.98] transform hover:-translate-y-0.5"
+          >
+            <FaWhatsapp className="text-2xl text-[#080808]" />
+            <span>ENTRAR NO GRUPO VIP DA MENTORIA</span>
+            <FaArrowRight className="text-sm" />
+          </a>
+
+          <p className="text-[11px] text-neutral-400 mt-3 flex items-center gap-1.5">
+            <FaShieldAlt className="text-[#e2a836]" /> Acesso 100% Gratuito ao Grupo de Espera
+          </p>
+
+        </section>
+
+        {/* =========================================================
+            2. O DIAGNÓSTICO: O TETO DE VIDRO (Inspirado na Ref. 1)
+           ========================================================= */}
+        <section className="flex flex-col gap-5 pt-4">
           
-          <div className="text-center flex flex-col items-center gap-4">
-            <span className="text-[#c77a16] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase">A Jornada Completa</span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
-              O Que Você Vai Aprender
+          <div className="text-center">
+            <span className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.25em] block mb-2">
+              DIAGNÓSTICO EMPRESARIAL
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
+              VOCÊ ATINGIU O SEU <br/>
+              <span className="text-[#e2a836]">TETO DE VIDRO?</span>
             </h2>
-            <p className="text-neutral-400 max-w-[500px] mx-auto text-sm sm:text-base">
-              Um método desenhado passo a passo. Do operacional ao estratégico, de marceneiro a empresário de sucesso.
+            <p className="text-neutral-400 text-xs mt-2 max-w-[380px] mx-auto leading-relaxed">
+              A maioria dos marceneiros talentosos fica presa na armadilha do esforço sem escala. Reconhece estes sinais?
             </p>
           </div>
 
-          <div className="flex flex-col gap-4">
-            {modules.map((mod, index) => {
-              const isOpen = openModule === index;
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            {painPoints.map((item) => (
+              <div 
+                key={item.id}
+                className="p-5 rounded-2xl bg-gradient-to-b from-[#140e08] to-[#0c0805] border border-[#c77a16]/20 flex flex-col gap-2 hover:border-[#c77a16]/50 transition-colors shadow-lg"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#c77a16]/20 border border-[#c77a16]/30 flex items-center justify-center shrink-0">
+                    <FaExclamationTriangle className="text-[#e2a836] text-xs" />
+                  </div>
+                  <h3 className="font-bold text-white text-[13px] leading-snug">{item.title}</h3>
+                </div>
+                <p className="text-neutral-400 text-[11.5px] leading-relaxed pl-1">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="p-4 rounded-2xl bg-[#140e08] border border-[#c77a16]/30 text-center flex flex-col items-center gap-2 mt-1">
+            <p className="text-neutral-200 text-xs font-medium">
+              💡 <strong>A boa notícia:</strong> Não é falta de trabalho ou de qualidade. É apenas a falta do <strong>Método Certo de Gestão</strong>.
+            </p>
+          </div>
+
+        </section>
+
+        {/* =========================================================
+            3. A GRADE DE MÓDULOS (Inspirado na Ref. 2)
+           ========================================================= */}
+        <section className="flex flex-col gap-6 pt-4">
+          
+          <div className="text-center">
+            <span className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.25em] block mb-2">
+              MÉTODO COMPLETO
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
+              O QUE VOCÊ VAI <br/>
+              <span className="text-[#e2a836]">DOMINAR NA MENTORIA</span>
+            </h2>
+            <p className="text-neutral-400 text-xs mt-2 max-w-[360px] mx-auto leading-relaxed">
+              5 pilares estratégicos desenhados para transformar a sua marcenaria em uma máquina de lucro e respeito.
+            </p>
+          </div>
+
+          {/* Module Accordions */}
+          <div className="flex flex-col gap-3">
+            {modules.map((mod, idx) => {
+              const isOpen = openModule === idx;
               return (
-                <div key={index} className={`rounded-2xl border transition-all duration-500 overflow-hidden ${isOpen ? 'bg-[#161616] border-[#c77a16]/50 shadow-[0_10px_30px_rgba(199,122,22,0.1)]' : 'bg-[#111] border-white/5 hover:border-white/10'}`}>
-                  
+                <div 
+                  key={idx}
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                    isOpen 
+                      ? "bg-[#140e08] border-[#c77a16]/60 shadow-[0_8px_30px_rgba(199,122,22,0.15)]" 
+                      : "bg-[#0f0b07] border-white/5 hover:border-[#c77a16]/30"
+                  }`}
+                >
                   <button 
-                    onClick={() => toggleModule(index)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                    onClick={() => setOpenModule(isOpen ? null : idx)}
+                    className="w-full p-4 sm:p-5 flex items-center justify-between text-left gap-3"
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                      <span className={`text-[10px] font-black tracking-widest uppercase px-2 py-1 rounded border ${isOpen ? 'bg-[#c77a16]/20 border-[#c77a16] text-[#c77a16]' : 'bg-white/5 border-transparent text-neutral-500'}`}>
-                        {mod.aula}
+                    <div className="flex items-center gap-3">
+                      <span className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shrink-0 transition-colors ${
+                        isOpen 
+                          ? "bg-gradient-to-br from-[#c77a16] to-[#e2a836] text-[#080808]" 
+                          : "bg-[#1a120b] text-[#e2a836] border border-[#c77a16]/20"
+                      }`}>
+                        {mod.number}
                       </span>
-                      <h3 className={`text-sm sm:text-base font-bold uppercase tracking-wide transition-colors ${isOpen ? 'text-white' : 'text-neutral-300'}`}>
-                        {mod.title}
-                      </h3>
+                      <div>
+                        <span className="text-[9px] font-black tracking-widest text-[#e2a836] uppercase block">
+                          {mod.aula}
+                        </span>
+                        <h3 className="font-bold text-white text-[14px] leading-tight mt-0.5">
+                          {mod.title}
+                        </h3>
+                      </div>
                     </div>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 shrink-0 ${isOpen ? 'bg-[#c77a16] rotate-180' : 'bg-[#1a1a1a]'}`}>
-                      <FaChevronDown className={isOpen ? 'text-black' : 'text-neutral-500'} />
-                    </div>
+                    
+                    <FaChevronDown className={`text-[#e2a836] text-xs transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
                   </button>
 
-                  <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[1000px] opacity-100 pb-6 px-6' : 'max-h-0 opacity-0 px-6 overflow-hidden'}`}>
-                    
-                    {mod.subtitle && (
-                      <h4 className="text-[#e2a836] font-serif italic text-lg mb-4">{mod.subtitle}</h4>
-                    )}
+                  {isOpen && (
+                    <div className="px-5 pb-5 pt-1 border-t border-[#c77a16]/10 flex flex-col gap-4 animate-fade-in-up">
+                      <p className="text-neutral-300 text-xs font-semibold">
+                        {mod.subtitle}
+                      </p>
 
-                    <div className="flex flex-col gap-2 mb-6 pl-2">
-                      {mod.content.map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <FaCheckCircle className="text-[#c77a16] text-sm mt-1 shrink-0" />
-                          <p className="text-neutral-300 text-sm leading-relaxed">{item}</p>
+                      {mod.quote && (
+                        <div className="p-3.5 rounded-xl bg-[#0a0704] border border-[#c77a16]/20 flex gap-2.5 items-start">
+                          <FaQuoteLeft className="text-[#c77a16] text-sm shrink-0 mt-0.5" />
+                          <p className="text-[#e2a836] text-[11px] font-serif italic leading-relaxed">
+                            {mod.quote}
+                          </p>
                         </div>
-                      ))}
-                    </div>
+                      )}
 
-                    <div className="bg-[#0a0a0a] rounded-xl p-5 border border-white/5 flex flex-col gap-4">
-                       <div>
-                         <span className="text-[9px] uppercase font-bold text-neutral-600 tracking-widest mb-1 block">Abertura</span>
-                         <p className="text-neutral-400 text-xs italic">{mod.opening}</p>
-                       </div>
-                       <div className="pl-4 border-l-2 border-[#c77a16]">
-                         <span className="text-[9px] uppercase font-bold text-[#c77a16] tracking-widest mb-1 block">Impacto</span>
-                         <p className="text-white text-sm font-medium">{mod.impact}</p>
-                       </div>
-                       <div>
-                         <span className="text-[9px] uppercase font-bold text-neutral-600 tracking-widest mb-1 block">Fechamento</span>
-                         <p className="text-neutral-400 text-xs italic">{mod.closing}</p>
-                       </div>
+                      <div className="flex flex-col gap-2">
+                        <span className="text-[10px] font-black text-neutral-400 uppercase tracking-wider">Conteúdo Prático:</span>
+                        {mod.content.map((item, cIdx) => (
+                          <div key={cIdx} className="flex items-start gap-2 text-[12px] text-neutral-300">
+                            <FaCheckCircle className="text-[#e2a836] text-xs shrink-0 mt-1" />
+                            <span className="leading-snug">{item}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-
-                  </div>
+                  )}
                 </div>
               );
             })}
           </div>
 
-        </div>
-      </section>
+          <a 
+            href={whatsappLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-full py-4 rounded-xl bg-gradient-to-r from-[#c77a16] to-[#e2a836] text-[#080808] font-black text-xs uppercase tracking-widest text-center flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(199,122,22,0.3)] hover:scale-105 active:scale-95 transition-transform"
+          >
+            <FaWhatsapp className="text-lg" />
+            <span>QUERO TER ACESSO A ESSE CONTEÚDO</span>
+          </a>
 
-      {/* --- OFFER / PRICING SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-24 bg-[#111] border-t border-white/5">
-        <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-12 items-center justify-center">
+        </section>
+
+        {/* =========================================================
+            4. PARA QUEM É A MENTORIA (Inspirado na Ref. 3)
+           ========================================================= */}
+        <section className="flex flex-col gap-6 pt-4">
           
-          <div className="w-full max-w-[450px] bg-gradient-to-b from-[#1a110a] to-[#0d0d0d] rounded-3xl p-8 sm:p-10 border border-[#c77a16]/30 shadow-[0_20px_50px_rgba(199,122,22,0.15)] flex flex-col items-center text-center relative overflow-hidden group">
-            
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] bg-[#c77a16]/30 blur-[60px] pointer-events-none"></div>
-
-            <span className="text-[#c77a16] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase mb-4 relative z-10">
-              Formação Completa
+          <div className="text-center">
+            <span className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.25em] block mb-2">
+              PERFIL IDEAL
             </span>
-            <h3 className="text-3xl font-black uppercase text-white mb-6 relative z-10">
-              Mentoria <br/>Viver de Marcenaria
-            </h3>
-
-            <div className="flex flex-col gap-3 text-left w-full mb-8 relative z-10">
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-[#c77a16] mt-1 shrink-0" />
-                <span className="text-neutral-300 text-sm">Acesso completo e irrestrito às 11 Aulas exclusivas</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-[#c77a16] mt-1 shrink-0" />
-                <span className="text-neutral-300 text-sm">O mapa definitivo de marceneiro a empresário de sucesso</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-[#c77a16] mt-1 shrink-0" />
-                <span className="text-neutral-300 text-sm">Do financeiro, processos e montagem até as vendas</span>
-              </div>
-            </div>
-
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
-
-            <div className="flex flex-col items-center gap-2 mb-8 relative z-10">
-              <span className="text-[#c77a16] font-bold uppercase tracking-widest text-sm mb-1 animate-pulse">Inscrições Abertas</span>
-              <p className="text-neutral-400 text-center text-sm leading-relaxed px-4">
-                Clique no botão abaixo para garantir sua vaga e conferir as condições especiais de pagamento diretamente no checkout.
-              </p>
-            </div>
-
-            <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="w-full relative group/btn z-10">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-xl blur opacity-50 group-hover/btn:opacity-100 transition duration-500 animate-pulse"></div>
-              <button className="relative w-full py-5 bg-[#0d0d0d] border border-[#c77a16] rounded-xl text-[#e2a836] font-black uppercase tracking-widest text-sm shadow-2xl flex items-center justify-center hover:scale-[1.02] active:scale-[0.98] transition-all">
-                Quero Comprar Agora
-              </button>
-            </a>
-            
-            <p className="text-neutral-500 text-xs mt-5 flex items-center justify-center gap-2 relative z-10">
-              <FaCheckCircle /> Compra 100% segura e garantida (Hotmart)
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* --- FINAL CTA SECTION --- */}
-      <section className="relative z-10 w-full px-5 py-24 bg-gradient-to-t from-[#111] to-[#0d0d0d] border-t border-[#c77a16]/10 text-center">
-         <div className="max-w-[700px] mx-auto flex flex-col items-center gap-8">
-            <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight leading-tight">
-              Sua marcenaria nunca crescerá além da sua <span className="text-[#c77a16]">mentalidade</span>.
+            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
+              A MENTORIA É <br/>
+              <span className="text-[#e2a836]">PARA VOCÊ QUE:</span>
             </h2>
-            <p className="text-neutral-400 text-lg">
-              Chegou a hora de transformar o seu ofício no seu império.
-            </p>
-            
-            <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="mt-4 relative group w-full sm:w-auto">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#c77a16] to-[#e2a836] rounded-2xl blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <button className="relative w-full sm:w-auto px-10 py-6 bg-[#0d0d0d] border border-[#c77a16] rounded-2xl text-[#e2a836] font-black uppercase tracking-[0.15em] text-sm sm:text-lg shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-[0.97] transition-all">
-                Garantir Minha Vaga Agora
-              </button>
-            </a>
-         </div>
-      </section>
-
-      {/* --- FOOTER --- */}
-      <footer className="relative z-10 w-full pb-8 pt-12 flex justify-center bg-[#111]">
-        <a href="https://www.wasventure.com.br" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity group">
-          <span className="text-[10px] text-neutral-500 tracking-[0.2em] font-black uppercase mt-[2px] group-hover:text-neutral-400 transition-colors">Desenvolvido por</span>
-          <div className="w-[100px] h-[40px] relative">
-            <Image src="/Logotipo ilustrado ervateria chimarrão verde, bege e marrom.png" alt="WAS." fill className="object-contain object-left" />
           </div>
-        </a>
-      </footer>
 
+          <div className="flex flex-col gap-4">
+            {targetAudiences.map((aud, i) => (
+              <div 
+                key={i}
+                className="relative w-full h-[280px] rounded-3xl overflow-hidden border border-[#c77a16]/30 group shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+              >
+                <Image 
+                  src={aud.image} 
+                  alt={aud.title} 
+                  fill 
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700 brightness-90" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/75 to-transparent"></div>
+
+                <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                  <div className="w-8 h-8 rounded-full bg-[#c77a16] text-[#080808] font-black text-sm flex items-center justify-center shadow-lg">
+                    {aud.step}
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-black text-white uppercase tracking-tight leading-tight">
+                      {aud.title}
+                    </h3>
+                    <p className="text-neutral-300 text-xs mt-2 leading-relaxed max-w-[95%] font-medium">
+                      {aud.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </section>
+
+        {/* =========================================================
+            5. SOBRE O MENTOR (Autoridade & Legado)
+           ========================================================= */}
+        <section className="p-6 sm:p-7 rounded-[32px] bg-gradient-to-b from-[#140e08] to-[#0a0704] border border-[#c77a16]/30 flex flex-col gap-6 shadow-2xl relative overflow-hidden">
+          
+          {/* Subtle glow */}
+          <div className="absolute top-0 right-0 w-48 h-48 bg-[#c77a16]/10 blur-3xl pointer-events-none"></div>
+
+          <div>
+            <span className="text-[10px] text-[#e2a836] font-black uppercase tracking-[0.25em] block mb-1">
+              CONHEÇA SEU MENTOR
+            </span>
+            <h2 className="text-2xl font-black uppercase text-white leading-tight">
+              EDRIANO BITTENCOURT
+            </h2>
+            <p className="text-[#c77a16] text-xs font-semibold mt-0.5">
+              40 Anos de Carpintaria • 25 Anos de Marcenaria
+            </p>
+          </div>
+
+          <div className="relative w-full h-[260px] rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <Image 
+              src="/WhatsApp Image 2026-06-25 at 19.12.41 (24).jpeg" 
+              alt="Edriano Bittencourt na oficina" 
+              fill 
+              className="object-cover object-top" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0704] via-transparent to-transparent"></div>
+          </div>
+
+          <div className="text-neutral-300 text-xs leading-relaxed flex flex-col gap-3 font-medium">
+            <p>
+              &quot;A marcenaria não foi uma profissão que escolhi. Foi um legado que recebi, uma missão que abracei e um propósito que decidi viver.&quot;
+            </p>
+            <p>
+              Filho de carpinteiro, Edriano aprendeu na prática que <strong className="text-white">o caráter vale mais do que qualquer ferramenta</strong> e que a palavra de um homem tem valor inegociável.
+            </p>
+            <p>
+              Hoje, sua missão é guiar donos de marcenarias de todo o Brasil a transformarem o trabalho com a madeira em empresas lucrativas, organizadas e respeitadas por gerações.
+            </p>
+          </div>
+
+          {/* Legacy Quote Highlight */}
+          <div className="p-4 rounded-2xl bg-[#080503] border border-[#c77a16]/30 text-center">
+            <p className="text-white font-serif italic text-sm leading-relaxed">
+              &quot;O maior penhor que você pode deixar a um filho é o legado.&quot;
+            </p>
+          </div>
+
+        </section>
+
+        {/* =========================================================
+            6. CTA FINAL & ESCASSEZ (Fechamento)
+           ========================================================= */}
+        <section className="p-7 rounded-[32px] bg-gradient-to-br from-[#1a120b] via-[#0f0a06] to-[#080808] border-2 border-[#c77a16]/50 text-center flex flex-col items-center gap-5 shadow-[0_0_50px_rgba(199,122,22,0.25)] relative overflow-hidden">
+          
+          {/* Top pulse badge */}
+          <div className="px-4 py-1.5 rounded-full bg-[#c77a16]/20 border border-[#c77a16]/40 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping"></span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-[#e2a836]">GRUPO VIP ABERTO</span>
+          </div>
+
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
+              DÊ O PRIMEIRO PASSO <br/>
+              <span className="bg-gradient-to-r from-[#e2a836] to-[#f7d58b] bg-clip-text text-transparent">
+                RUMO AO SEU LEGADO
+              </span>
+            </h2>
+            <p className="text-neutral-300 text-xs mt-3 max-w-[380px] leading-relaxed">
+              As vagas para a nova turma da Mentoria são extremamente limitadas para garantir o acompanhamento direto de cada marcenaria.
+            </p>
+          </div>
+
+          <div className="w-full flex flex-col gap-3 mt-2">
+            <a 
+              href={whatsappLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#c77a16] via-[#e2a836] to-[#c77a16] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-[#080808] font-black text-xs sm:text-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(226,168,54,0.5)] active:scale-[0.98]"
+            >
+              <FaWhatsapp className="text-2xl text-[#080808]" />
+              <span>GARANTIR VAGA NO GRUPO VIP</span>
+            </a>
+
+            <p className="text-[10px] text-neutral-500 uppercase tracking-widest">
+              Entrada imediata • Sem custo para entrar no grupo
+            </p>
+          </div>
+
+        </section>
+
+        {/* Footer */}
+        <footer className="pt-4 flex flex-col items-center gap-2 text-center">
+          <p className="text-[11px] text-neutral-500 font-medium">
+            © {new Date().getFullYear()} Mentoria Viver de Marcenaria • Todos os direitos reservados.
+          </p>
+          <a href="https://www.wasventure.com.br" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+            <span className="text-[8px] text-neutral-500 tracking-[0.2em] font-black uppercase">Desenvolvido por WAS.</span>
+          </a>
+        </footer>
+
+      </div>
     </main>
   );
 }
