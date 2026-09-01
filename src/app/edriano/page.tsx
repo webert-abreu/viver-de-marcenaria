@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaYoutube, FaWhatsapp, FaArrowRight, FaLaptop, FaCalendarAlt, FaShoppingCart } from "react-icons/fa";
 
-export default function Home() {
+export default function Edriano() {
   const [showBio, setShowBio] = useState(false);
   const [showSchedule, setShowSchedule] = useState(false);
 
